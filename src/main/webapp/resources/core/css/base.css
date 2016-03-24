@@ -1,0 +1,63 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+.form-inline {
+	padding: 75px 0px 10px 0px;
+}
+
+.search_map {
+	padding-top: 25px;
+	border-top: 1px grey solid;
+}
+
+.searchresult div {
+	margin: 10px;
+	cursor: pointer;
+}
+
+#createUserModal .modal-content {
+	width: 450px;
+}
+
+#createUserModal .modal-dialog {
+	width: 450px;
+}
+
+small {
+	color: red;
+	margin-left: 12px;
+}
+
+#mainhome .form-inline {
+	margin-top: 10%
+}
+
+#mainhome .glyphicon-play-circle {
+	color: #9ecaed;
+}
+
+#ecompany {
+	width: 325px;
+	height: 47px;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+#homediv {
+	min-height: 900px;
+	
+}
+
+#topNavBar {
+	margin-bottom: 0px;
+}
+
+footer p {
+	margin: 15px 0px
+}
+
+.mainFooter {
+	background-color: #333;
+	color: #9d9d9d
+}

@@ -1,0 +1,70 @@
+.superuserBase {
+	text-align: center;
+}
+
+.superuserBase img {
+	height: 30%;
+	margin: 50px 100px 100px 100px;
+}
+
+#userPurpose1, #userPurpose2, #userPurpose3 {
+	max-width: 650px;
+	margin: 0 auto;
+}
+
+#userPurpose1 btn-group, #userPurpose2 btn-group, #userPurpose3 btn-group
+	{
+	padding: auto 750px
+}
+
+#userPurpose1 .dropdown-toggle, #userPurpose2 .dropdown-toggle,
+	#userPurpose3 .dropdown-toggle {
+	min-width: 250px;
+}
+
+#userPurpose3 table th {
+	text-align: center;
+}
+
+#paginationCounter {
+	margin-bottom: 20px;
+}
+
+#paginationCounter .pagination {
+	margin: 0px;
+}
+
+#accordion .panel-heading {
+	background-color: #5bc0de
+}
+#midContent{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.thumbnail{
+	margin: 10px 0px;
+}
+#individualDiv ul li {
+	text-align: center;
+}
+
+
+#individualDiv .well:nth-of-type(odd) {
+	background: #52cfb6;
+}
+
+#allHome .nav-stacked li a {
+	border-radius: 0px;
+}
+
+#allHome .nav-stacked .active a{
+	background-color: #94a9ab;
+	color: #23527c;
+}
+#allHome .nav-stacked .togl a{
+	background-color: #f5f7fa;
+	color: #34c2e0;
+}
+#allHome .nav-stacked .togl {
+	display: none;
+}
