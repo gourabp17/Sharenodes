@@ -125,9 +125,11 @@ function forgetpwdModal() {
 
 function forPwd() {
 	var registred_email = document.getElementById("registred_email").value;
+
 	var valiEmail = (registred_email);
-	if (valiEmail === "true") {
-		$.post(actualurl + "/loginform/forgetpassword", {
+	if (valiEmail) {
+		alert(registred_email)
+		$.get("loginform/forgetpassword", {
 			regemailad : registred_email.trim(),
 		}, function(data) {
 			var output = data.charAt(0);

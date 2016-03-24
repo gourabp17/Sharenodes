@@ -12,12 +12,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cportal.database.controller.DatabaseController;
 import com.cportal.model.LoginCredential;
 import com.cportal.model.LoginUser;
 import com.cportal.model.User;
+import com.cportal.model.mailservice.MailGun;
 import com.cportal.ui.model.GenarateCaptchaImg;
 
 @Controller
@@ -105,5 +107,14 @@ public class LoginFromController {
 		session.removeAttribute("succesfullogin");
 		session.invalidate();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = { "/loginform/forgetpassword" }, method = RequestMethod.GET)
+	public @ResponseBody String forgetPwd(@RequestParam("regemailad") String regemailad) {
+		System.out.println("reg mail "+regemailad);
+		MailGun mg= new MailGun();
+		mg.sendMail(regemailad);
+		return "3";
+
 	}
 }
