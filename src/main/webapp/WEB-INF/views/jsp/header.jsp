@@ -155,7 +155,8 @@
 							</div>
 						</div>
 
-
+						<div id="regformAlert" style="display: none"
+							class="alert alert-danger" role="alert"></div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-toolbar"

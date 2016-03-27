@@ -29,22 +29,15 @@ function captchaRefresh() {
 
 }
 
-$('#loginForm')
-		.submit(
-				function(event) {
+$('#loginForm').submit(function(event) {
 					event.preventDefault();
-
-					$
-							.ajax({
+					$.ajax({
 								url : "loginform",
 								type : 'POST',
 								data : $(this).serialize(),
 								success : function(data) {
-
 									if (data == "success") {
-
 										window.location.replace("home");
-
 									} else {
 										document.getElementById("formAlert").style.display = "block";
 										document.getElementById("formAlert").className = "alert alert-danger"
@@ -64,9 +57,7 @@ $('#regForm')
 		.submit(
 				function(event) {
 					event.preventDefault();
-
-					$
-							.ajax({
+					$.ajax({
 								url : "registercomp",
 								type : 'POST',
 								data : $(this).serialize(),
@@ -82,23 +73,14 @@ $('#regForm')
 												.fadeIn(
 														'normal',
 														function() {
-															$(
-																	'#myModal .alert-success')
-																	.fadeOut(
-																			80000);
+															$('#myModal .alert-success').fadeOut(8000);
 														});
 									} else {
 										document.getElementById("regformAlert").style.display = "block";
 										document.getElementById("regformAlert").className = "alert alert-danger"
 										document.getElementById("regformAlert").innerHTML = data;
-										$("#createUserModal .alert-danger")
-												.fadeIn(
-														'normal',
-														function() {
-															$(
-																	'#createUserModal .alert-danger')
-																	.fadeOut(
-																			80000);
+										$("#createUserModal .alert-danger").fadeIn('normal',function() {
+															$('#createUserModal .alert-danger').fadeOut(8000);
 														});
 									}
 								}
@@ -118,7 +100,7 @@ function forgetpwdModal() {
 			.html(
 					'<div class="input-group">\n\
         <span class="input-group-addon">Email</span>\n\
-        <input type="text" class="form-control" id="registred_email" name="registered_email" placeholder="Enter registered e-mail">\n\
+        <input type="email" class="form-control" id="registred_email" name="registered_email" placeholder="Enter registered e-mail">\n\
         </div>');
 	$('#forgetpwdModal .modal-footer button:eq(1)').show();
 }
@@ -128,7 +110,6 @@ function forPwd() {
 
 	var valiEmail = (registred_email);
 	if (valiEmail) {
-		alert(registred_email)
 		$.get("loginform/forgetpassword", {
 			regemailad : registred_email.trim(),
 		}, function(data) {

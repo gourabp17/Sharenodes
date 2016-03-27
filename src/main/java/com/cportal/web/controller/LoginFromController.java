@@ -29,7 +29,7 @@ public class LoginFromController {
 	public String printWelcome(ModelMap model, HttpSession sess) {
 		System.out.println(sess.getAttribute("succesfullogin"));
 		if (sess.getAttribute("succesfullogin") != null) {
-			
+
 			return "redirect:/home";
 		}
 		return "hello";
@@ -37,24 +37,28 @@ public class LoginFromController {
 	}
 
 	@RequestMapping(value = { "/registercomp" }, method = RequestMethod.POST)
-	public @ResponseBody String registerCompany(@ModelAttribute("test") User user, ModelMap model) {
+	public @ResponseBody String registerCompany(@ModelAttribute("test") User user, ModelMap model,
+			HttpSession session) {
 
-		// user=new User();
-		model.addAttribute("test", user);
-		if (DatabaseController.companyNewRegistration(user)) {
-			return "success";
-		} else {
-			return "Company Already Register";
+		if (session.getAttribute("captcha").equals(user.getCaptcha())) {
+			model.addAttribute("test", user);
+			if (DatabaseController.companyNewRegistration(user)) {
+				return "success";
+			} else {
+				return "Company Already Register";
+			}
 		}
-
+		else{
+			return "Captcha Invalid";
+		}
 	}
 
 	@RequestMapping(value = { "/loginform" }, method = RequestMethod.POST)
 	public @ResponseBody String loginCheck(@ModelAttribute("login") LoginUser luser, ModelMap model1,
 			HttpSession session) {
 
-		String username ="pradeep";
-		String cname ="pradeep";
+		String username = "pradeep";
+		String cname = "pradeep";
 		String userType = "superuser";
 		String email = "farji@farji.com";
 		if (email == null || cname == null || userType == null || email == null) {
@@ -99,8 +103,6 @@ public class LoginFromController {
 		return fileContent;
 	}
 
-	
-
 	@RequestMapping(value = { "/loginform/logout" }, method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 
@@ -108,11 +110,11 @@ public class LoginFromController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = { "/loginform/forgetpassword" }, method = RequestMethod.GET)
 	public @ResponseBody String forgetPwd(@RequestParam("regemailad") String regemailad) {
-		System.out.println("reg mail "+regemailad);
-		MailGun mg= new MailGun();
+		System.out.println("reg mail " + regemailad);
+		MailGun mg = new MailGun();
 		mg.sendMail(regemailad);
 		return "3";
 
