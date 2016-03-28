@@ -1,5 +1,5 @@
 <link href="resources/core/css/home.css" rel="stylesheet" />
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <div class="superuserBase">
 	<img src="resources/core/images/add_user.png" alt="Add User"
 		onclick="window.location.href = '#userPurpose1'; displayUserPurpose1()" />
@@ -209,5 +209,5 @@
 		</div>
 	</div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="../footer.jsp"%>
 <script src="resources/core/js/home.js"></script>
