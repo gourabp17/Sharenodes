@@ -52,7 +52,7 @@ public class MailGun {
 			message.setFrom(new InternetAddress(from, "Verify Account"));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(
 					to));
-			message.setSubject("Reset password Sharenodes");
+			message.setSubject("Verify your Account");
 			message.setText("www.sharenodes.com/verify_account?email="+uEmail+"&code="+uCode);
 
 			// Send message

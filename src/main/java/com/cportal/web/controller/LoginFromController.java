@@ -56,12 +56,15 @@ public class LoginFromController {
 	@RequestMapping(value = { "/loginform" }, method = RequestMethod.POST)
 	public @ResponseBody String loginCheck(@ModelAttribute("login") LoginUser luser, ModelMap model1,
 			HttpSession session) {
-
-		String username = "pradeep";
-		String cname = "pradeep";
-		String userType = "superuser";
-		String email = "farji@farji.com";
-		if (email == null || cname == null || userType == null || email == null) {
+		session.removeAttribute("succesfullogin");
+		session.invalidate();
+		LoginCredential personDetails= (new DatabaseController()).loginCheck(luser.getUsername(),luser.getPassword());
+		
+		String username = personDetails.getsUserName();
+		String cname = personDetails.getCompanyName();
+		String userType = personDetails.getUserType();
+		String email = personDetails.getEmail();
+		if (email == null || cname == null || userType == null || username == null) {
 			String msg = "User id or Password wrong!.";
 			model1.addAttribute("login", msg);
 			return msg;
@@ -69,6 +72,7 @@ public class LoginFromController {
 
 		if (email.equals(luser.getUsername())) {
 			session.setAttribute("succesfullogin", cname);
+			session.setAttribute("userRole", userType);
 			return "success";
 		} else {
 			return "Some error occured";
@@ -125,7 +129,7 @@ public class LoginFromController {
 		if ((new DatabaseController()).verifyUser(email,code)) {
 			return "successfully verified. Please login";
 		} else {
-			return "Verification Failed";
+			return "Verification Failed or Already verified";
 		}
 
 	}

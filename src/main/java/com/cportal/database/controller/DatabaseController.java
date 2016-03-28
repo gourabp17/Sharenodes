@@ -73,13 +73,10 @@ public class DatabaseController {
 		Connection connection = null;
 		LoginCredential cr = null;
 		try {
-			// STEP 1
-			
-
-			String query = "select sUserName,companyName,email,userType from companyRegistration where email=? and password=?";
-			// STEP 2
 			connection = (ConfigDB.retrnConf()).getConnection();
-			System.out.println(connection);
+			
+			String query = "select s_user_name,company_name,company_email from registration_vw_sharenodes where company_email=? and login_password=?";
+
 			PreparedStatement ps = connection.prepareStatement(query);
 
 			ps.setString(1, username);
@@ -91,11 +88,34 @@ public class DatabaseController {
 			if (rs != null) {
 				while (rs.next()) {
 
-					cr.setsUserName(rs.getString("sUserName"));
-					cr.setCompanyName(rs.getString("companyName"));
-					cr.setEmail(rs.getString("email"));
-					cr.setUserType(rs.getString("userType"));
+					cr.setsUserName(rs.getString("s_user_name"));
+					cr.setCompanyName(rs.getString("company_name"));
+					cr.setEmail(rs.getString("company_email"));
+					cr.setUserType("superUser");
 
+				}
+			}
+			else{
+
+				String query2 = "select user_name,user_company_name,user_email,user_designation from company_vw_users where company_email=? and login_password=?";
+
+				PreparedStatement ps2 = connection.prepareStatement(query2);
+
+				ps2.setString(1, username);
+				ps2.setString(2, password);
+				// step 4
+
+				ResultSet rs2 = ps2.executeQuery();
+				cr = new LoginCredential();
+				if (rs2 != null) {
+					while (rs2.next()) {
+
+						cr.setsUserName(rs2.getString("user_name"));
+						cr.setCompanyName(rs2.getString("user_company_name"));
+						cr.setEmail(rs2.getString("user_email"));
+						cr.setUserType(rs2.getString("user_designation"));
+
+					}
 				}
 			}
 

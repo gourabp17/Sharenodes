@@ -25,8 +25,6 @@ public class HomeController {
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homeAuthorization(HttpSession session) {
 		String homeJsp = null;
-		session.setAttribute("userRole", "hr");
-
 		homeJsp = session.getAttribute("userRole")+"/home";
 		return homeJsp;
 	}
