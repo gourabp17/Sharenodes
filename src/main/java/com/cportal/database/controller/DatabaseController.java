@@ -75,12 +75,13 @@ public class DatabaseController {
 		try {
 			connection = (ConfigDB.retrnConf()).getConnection();
 			
-			String query = "select s_user_name,company_name,company_email from registration_vw_sharenodes where company_email=? and login_password=?";
+			String query = "select s_user_name,company_name,company_email from registration_vw_sharenodes where company_email=? and login_password=? and statusCode=?";
 
 			PreparedStatement ps = connection.prepareStatement(query);
 
 			ps.setString(1, username);
 			ps.setString(2, password);
+			ps.setString(3, "1");
 			// step 4
 
 			ResultSet rs = ps.executeQuery();

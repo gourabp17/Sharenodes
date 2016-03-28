@@ -57,7 +57,6 @@ public class LoginFromController {
 	public @ResponseBody String loginCheck(@ModelAttribute("login") LoginUser luser, ModelMap model1,
 			HttpSession session) {
 		session.removeAttribute("succesfullogin");
-		session.invalidate();
 		LoginCredential personDetails= (new DatabaseController()).loginCheck(luser.getUsername(),luser.getPassword());
 		
 		String username = personDetails.getsUserName();
