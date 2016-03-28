@@ -26,7 +26,7 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 	    registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/**")
 	    .excludePathPatterns("/").excludePathPatterns("/resources/**").excludePathPatterns("/loginform")
 	    .excludePathPatterns("/loginform/generate_captcha").excludePathPatterns("/registercomp")
-	    .excludePathPatterns("/loginform/forgetpassword");
+	    .excludePathPatterns("/loginform/forgetpassword").excludePathPatterns("/verify_account");
 	}
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {

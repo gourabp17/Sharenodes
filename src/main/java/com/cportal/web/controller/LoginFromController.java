@@ -42,7 +42,7 @@ public class LoginFromController {
 
 		if (session.getAttribute("captcha").equals(user.getCaptcha())) {
 			model.addAttribute("test", user);
-			if (DatabaseController.companyNewRegistration(user)) {
+			if ((new DatabaseController()).companyNewRegistration(user)) {
 				return "success";
 			} else {
 				return "Company Already Register";
@@ -117,6 +117,16 @@ public class LoginFromController {
 		MailGun mg = new MailGun();
 		mg.sendMail(regemailad);
 		return "3";
+
+	}
+	
+	@RequestMapping(value = { "/verify_account" }, method = RequestMethod.GET)
+	public @ResponseBody String verify_account(@RequestParam("email") String email,@RequestParam("code") String code) {
+		if ((new DatabaseController()).verifyUser(email,code)) {
+			return "successfully verified. Please login";
+		} else {
+			return "Verification Failed";
+		}
 
 	}
 }
