@@ -30,7 +30,7 @@
 				<div class="thumbnail">
 					<img src="resources/core/images/attendance.png" alt="...">
 					<div class="caption">
-						<p>Thumbnail label</p>
+						<p>Attendance</p>
 						
 					</div>
 				</div>
@@ -40,6 +40,15 @@
 					<img src="resources/core/images/resource.png" alt="...">
 					<div class="caption">
 						<p>Hr Management</p>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<img src="resources/core/images/Payslip.png" alt="..." style="border:  2px solid; border-radius: 200px;padding:15px;">
+					<div class="caption">
+						<p>Payslip</p>
 						
 					</div>
 				</div>

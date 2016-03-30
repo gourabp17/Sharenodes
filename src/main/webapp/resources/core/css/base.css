@@ -4,6 +4,8 @@ html {
 }
 #styleHome{
 	display: inline-block;
+	text-align: center;
+	margin: 0 auto; 
 }
 #styleHome .thumbnail {
 	border: none;
@@ -80,4 +82,9 @@ footer p a:HOVER {
 .mainFooter {
 	background-color: #333;
 	color: #9d9d9d
+}
+
+.brnd img{
+	display: inline-block;
+	height: 30px
 }
