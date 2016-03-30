@@ -16,6 +16,37 @@
 				Get started for FREE! </span>
 			</button>
 		</form>
+		<div class="row"  id="styleHome">
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<img src="resources/core/images/accountant.png" alt="...">
+					<div class="caption">
+						<p>Account Management</p>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<img src="resources/core/images/attendance.png" alt="...">
+					<div class="caption">
+						<p>Thumbnail label</p>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<img src="resources/core/images/resource.png" alt="...">
+					<div class="caption">
+						<p>Hr Management</p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
 	</div>
 </div>
 <%@include file="footer.jsp"%>

@@ -2,6 +2,20 @@ html {
 	height: 100%;
 	width: 100%;
 }
+#styleHome{
+	display: inline-block;
+}
+#styleHome .thumbnail {
+	border: none;
+	margin: 25px;
+}
+
+#styleHome div img {
+	max-height: 125px;
+	max-width: 125px;
+	
+	
+}
 
 .form-inline {
 	padding: 75px 0px 10px 0px;
@@ -44,8 +58,6 @@ small {
 	box-shadow: 0 0 10px #9ecaed;
 }
 
-
-
 #topNavBar {
 	margin-bottom: 0px;
 }
@@ -53,12 +65,14 @@ small {
 footer p {
 	margin: 15px 0px
 }
-footer p a{
+
+footer p a {
 	margin: 0px 10px;
 	color: #ebebeb;
 	text-decoration: none;
 }
-footer p a:HOVER{
+
+footer p a:HOVER {
 	color: #6abcf9;
 	text-decoration: none;
 }
