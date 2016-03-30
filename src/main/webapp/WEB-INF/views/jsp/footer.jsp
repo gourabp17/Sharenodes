@@ -2,7 +2,12 @@
 	<div class="container">
 
 		<footer>
-			<p class="text-right">&copy; sharenodes.com</p>
+			<p class="text-left navbar-text">
+				Developer: 
+				<a href="http://www.gourabpaul.info"> <span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Gourab Paul </a>
+				<a href="http://www.pradeepinfo.sharenodes.com"> <span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Pradeep Tripathi </a>
+			</p>
+			<p class="navbar-right navbar-text">&copy; sharenodes.com</p>
 		</footer>
 	</div>
 </div>

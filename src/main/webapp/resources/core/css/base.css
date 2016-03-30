@@ -44,10 +44,7 @@ small {
 	box-shadow: 0 0 10px #9ecaed;
 }
 
-#homediv {
-	min-height: 900px;
-	
-}
+
 
 #topNavBar {
 	margin-bottom: 0px;
@@ -55,6 +52,15 @@ small {
 
 footer p {
 	margin: 15px 0px
+}
+footer p a{
+	margin: 0px 10px;
+	color: #ebebeb;
+	text-decoration: none;
+}
+footer p a:HOVER{
+	color: #6abcf9;
+	text-decoration: none;
 }
 
 .mainFooter {

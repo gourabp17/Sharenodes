@@ -179,3 +179,10 @@ function popupReg() {
 	registerModal();
 	$("#regEmail").val($('#ecompany').val());
 }
+
+$(window).load(function() {
+	var winHeight=($(window).height())+"px";
+	$('#homediv').css({
+		"min-height" : winHeight
+	});
+});
