@@ -38,7 +38,7 @@
 				</button>
 				<a href="#" class="navbar-brand brnd">
 				        <img alt="Brand" src="resources/core/images/sharenodes_icon.png">
-				 Sharenodes</a>
+				 <b>Sharenodes</b></a>
 			</div>
 
 			<div class="collapse navbar-collapse navbar-right " id="collapse-1">

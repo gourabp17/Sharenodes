@@ -18,7 +18,11 @@ html {
 	
 	
 }
-
+@media (min-width: 767px) {
+	#styleHome .thumbnail {
+	margin-top: 125px;
+}
+}
 .form-inline {
 	padding: 75px 0px 10px 0px;
 }
@@ -32,7 +36,7 @@ html {
 	margin: 10px;
 	cursor: pointer;
 }
-
+@media (min-width: 767px) {
 #createUserModal .modal-content {
 	width: 450px;
 }
@@ -40,7 +44,7 @@ html {
 #createUserModal .modal-dialog {
 	width: 450px;
 }
-
+}
 small {
 	color: red;
 	margin-left: 12px;
@@ -86,5 +90,6 @@ footer p a:HOVER {
 
 .brnd img{
 	display: inline-block;
-	height: 30px
+	height: 40px;
+	margin-top: -10px;
 }
