@@ -1,11 +1,27 @@
 package com.cportal.model;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class EditUser {
+	
+	@NotEmpty @Email
 	private String personEmail;
+	
+	@Size(min=2, max=30) @NotEmpty
 	private String personName;
+	
+	@Size(min=2, max=30) @NotEmpty
 	private String personPassword;
+	
+	@Email
 	private String personManager;
+	
 	private String personRole;
+	
+	@NotEmpty
 	private String personDesignation;
 	public String getPersonEmail() {
 		return personEmail;
