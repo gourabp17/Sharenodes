@@ -19,7 +19,7 @@ function displayUserPurpose3() {
 var totalEmployee;
 var totalEmpCal;
 function calculateNoOfEmployees() {
-	$.post("noOfEmployees", {
+	$.post("superUser/noOfEmployees", {
 
 	}, function(data) {
 		totalEmployee = data;// display 10 user at a time
@@ -86,7 +86,7 @@ function setPaginationNav(event) {
 	var to = currentNo * 10;
 	var from = to - 9;
 	var boundary = from + "-" + to;
-	$.post("listOfUser", {
+	$.post("superUser/listOfUser", {
 		count : boundary
 	}, function(data) {
 		var json = JSON.parse(data);
@@ -130,7 +130,7 @@ function setPaginationNav(event) {
 function getSuperEdit() {
 	emailid = $("#toEditPersonEmail").val().trim();
 	if (emailid.length > 3) {
-		$.post("editBySuperUser", {
+		$.post("superUser/editBySuperUser", {
 			email : emailid
 		}, function(data) {
 			alert(data);
@@ -149,7 +149,7 @@ $('#editSuperName').keyup("keypress", function(e) {
 $('#addNewUser').submit(function(event) {
 	event.preventDefault();
 	$.ajax({
-		url : "addNewUser",
+		url : "superUser/addNewUser",
 		type : 'POST',
 		data : $(this).serialize(),
 		success : function(data) {
@@ -179,10 +179,9 @@ function deleteUser() {
 $('#sendToUpdate').submit(function(event) {
 	emailid = $("#toEditPersonEmail").val().trim();
 	$("#sendToUpdate #personEmail").val(emailid);
-	alert()
 	event.preventDefault();
 	$.ajax({
-		url : "sendToUpdate",
+		url : "superUser/sendToUpdate",
 		type : 'POST',
 		data : $(this).serialize(),
 		success : function(data) {

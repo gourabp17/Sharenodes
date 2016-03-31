@@ -93,3 +93,6 @@ footer p a:HOVER {
 	height: 40px;
 	margin-top: -10px;
 }
+#myHeader li a{
+	cursor: pointer;
+}

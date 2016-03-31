@@ -29,13 +29,13 @@ public class HomeController {
 		return homeJsp;
 	}
 
-	@RequestMapping(value = { "/noOfEmployees" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/noOfEmployees" }, method = RequestMethod.POST)
 	public @ResponseBody String noOfEmployees() {
 		// proceed if session of role is superuser
 		return "201";
 	}
 
-	@RequestMapping(value = { "/addNewUser" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/addNewUser" }, method = RequestMethod.POST)
 	public @ResponseBody String addNewUser(
 			@ModelAttribute("adduser") EditUser editUser, ModelMap model) {
 		System.out.println("edituser: " + editUser.getPersonDesignation());
@@ -44,7 +44,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = { "/deleteBySuperUser" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/deleteBySuperUser" }, method = RequestMethod.POST)
 	public @ResponseBody String deleteBySuperUser(@RequestBody String searchIn) {
 		// input comes as "email=farji@farji.com" split with = and use
 		System.out.println(searchIn);
@@ -53,7 +53,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = { "/editBySuperUser" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/editBySuperUser" }, method = RequestMethod.POST)
 	public @ResponseBody String editBySuperUser(@RequestBody String searchIn) {
 
 		// input comes as "email=farji@farji.com" split with = and use
@@ -63,7 +63,7 @@ public class HomeController {
 					// return not-found
 	}
 
-	@RequestMapping(value = { "/sendToUpdate" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/sendToUpdate" }, method = RequestMethod.POST)
 	public @ResponseBody String sendToUpdate(
 			@ModelAttribute("sendToUpdate") EditUser editUser, ModelMap model) {
 		System.out.println("edituser: " + editUser.getPersonDesignation());
@@ -72,7 +72,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = { "/listOfUser" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/superUser/listOfUser" }, method = RequestMethod.POST)
 	public @ResponseBody String listOfUser(@RequestBody String boundary) {
 
 		// input comes as "count=1-10" split with = and use

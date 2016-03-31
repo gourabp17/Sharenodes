@@ -12,7 +12,6 @@ public class LoggingInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		HttpSession sess = request.getSession();
-		System.out.println(sess.getAttribute("succesfullogin"));
 		if (sess.getAttribute("succesfullogin") == null) {
 			response.sendRedirect("");
 			return false;

@@ -8,7 +8,7 @@
 	<img src="resources/core/images/list-user.png" alt="Add User"
 		onclick="window.location.href = '#userPurpose3'; displayUserPurpose3()" />
 	<div id="userPurpose1" class="container">
-		<form action="addNewUser" method="post" commandName="adduser"
+		<form  method="post" commandName="adduser"
 			id="addNewUser">
 			<div class="form-group">
 
@@ -97,7 +97,7 @@
 					onclick="getSuperEdit()">Search</button>
 			</span>
 		</div>
-		<form action="sendToUpdate" method="post" commandName="sendToUpdate"
+		<form  method="post" commandName="sendToUpdate"
 			id="sendToUpdate">
 			<input type="hidden" class="form-control" id="personEmail"
 				name="personEmail">
