@@ -25,7 +25,7 @@ import com.cportal.ui.model.GenarateCaptchaImg;
 @Controller
 public class LoginFromController {
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/","/index" }, method = RequestMethod.GET)
 	public String printWelcome(ModelMap model, HttpSession sess) {
 		System.out.println(sess.getAttribute("succesfullogin"));
 		if (sess.getAttribute("succesfullogin") != null) {

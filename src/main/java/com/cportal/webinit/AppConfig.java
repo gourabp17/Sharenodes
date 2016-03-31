@@ -28,8 +28,8 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 	    .excludePathPatterns("/loginform/generate_captcha").excludePathPatterns("/registercomp")
 	    .excludePathPatterns("/loginform/forgetpassword").excludePathPatterns("/verify_account");
 	    
-	    registry.addInterceptor(new LinkRole()).addPathPatterns("/hr/**").addPathPatterns("/superUser/**")
-	    .addPathPatterns("/accountant/**");
+	   // registry.addInterceptor(new LinkRole()).addPathPatterns("/hr/**").addPathPatterns("/superUser/**")
+	   //  .addPathPatterns("/accountant/**");
 	}
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
