@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cportal.database.controller.DBSuperUserFunc;
 import com.cportal.database.controller.DatabaseController;
 import com.cportal.model.EditUser;
 import com.cportal.model.User;
@@ -37,10 +38,12 @@ public class HomeController {
 
 	@RequestMapping(value = { "/superUser/addNewUser" }, method = RequestMethod.POST)
 	public @ResponseBody String addNewUser(
-			@ModelAttribute("adduser") EditUser editUser, ModelMap model) {
-		System.out.println("edituser: " + editUser.getPersonDesignation());
-
-		return "success";
+			@ModelAttribute("adduser") EditUser editUser, HttpSession session ) {
+		if ((new DBSuperUserFunc()).companyNewUser(editUser, session.getAttribute("userEmail").toString())) {
+			return "success";
+		} else {
+			return "Company Already Register";
+		}
 
 	}
 

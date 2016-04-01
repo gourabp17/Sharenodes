@@ -46,7 +46,7 @@ $('#loginForm').submit(function(event) {
 												'normal',
 												function() {
 													$('#myModal .alert-danger')
-															.fadeOut(80000);
+															.fadeOut(2500);
 												});
 									}
 								}
@@ -80,7 +80,7 @@ $('#regForm')
 										document.getElementById("regformAlert").className = "alert alert-danger"
 										document.getElementById("regformAlert").innerHTML = data;
 										$("#createUserModal .alert-danger").fadeIn('normal',function() {
-															$('#createUserModal .alert-danger').fadeOut(8000);
+															$('#createUserModal .alert-danger').fadeOut(2500);
 														});
 									}
 								}

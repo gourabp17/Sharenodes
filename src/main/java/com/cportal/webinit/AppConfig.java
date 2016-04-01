@@ -23,13 +23,13 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
         }
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-	    registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/**")
+	    registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/**").excludePathPatterns("/index")
 	    .excludePathPatterns("/").excludePathPatterns("/resources/**").excludePathPatterns("/loginform")
 	    .excludePathPatterns("/loginform/generate_captcha").excludePathPatterns("/registercomp")
 	    .excludePathPatterns("/loginform/forgetpassword").excludePathPatterns("/verify_account");
 	    
-	   // registry.addInterceptor(new LinkRole()).addPathPatterns("/hr/**").addPathPatterns("/superUser/**")
-	   //  .addPathPatterns("/accountant/**");
+	    registry.addInterceptor(new LinkRole()).addPathPatterns("/hr/**").addPathPatterns("/superUser/**")
+	    .addPathPatterns("/accountant/**");
 	}
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {

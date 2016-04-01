@@ -86,35 +86,34 @@ public class DatabaseController {
 
 			ResultSet rs = ps.executeQuery();
 			cr = new LoginCredential();
-			if (rs != null) {
-				while (rs.next()) {
+			if (rs.next()) {
+			    do {
 
 					cr.setsUserName(rs.getString("s_user_name"));
 					cr.setCompanyName(rs.getString("company_name"));
 					cr.setEmail(rs.getString("company_email"));
 					cr.setUserType("superUser");
 
-				}
+				} while(rs.next());
 			}
 			else{
 
-				String query2 = "select user_name,user_company_name,user_email,user_designation from company_vw_users where company_email=? and login_password=?";
+				String query2 = "select user_name,user_company_name,user_email,user_designation from company_vw_users where user_email=? and user_login_password=?and statusCode=?";
 
 				PreparedStatement ps2 = connection.prepareStatement(query2);
 
 				ps2.setString(1, username);
 				ps2.setString(2, password);
-				// step 4
+				ps2.setString(3, "1");
 
 				ResultSet rs2 = ps2.executeQuery();
-				cr = new LoginCredential();
 				if (rs2 != null) {
 					while (rs2.next()) {
 
 						cr.setsUserName(rs2.getString("user_name"));
 						cr.setCompanyName(rs2.getString("user_company_name"));
 						cr.setEmail(rs2.getString("user_email"));
-						cr.setUserType(rs2.getString("user_designation"));
+						cr.setUserType(rs2.getString("user_designation").toLowerCase());
 
 					}
 				}

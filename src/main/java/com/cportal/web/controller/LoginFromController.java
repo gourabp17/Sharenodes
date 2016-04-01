@@ -70,8 +70,9 @@ public class LoginFromController {
 		}
 
 		if (email.equals(luser.getUsername())) {
-			session.setAttribute("succesfullogin", cname);
+			session.setAttribute("succesfullogin", username);
 			session.setAttribute("userRole", userType);
+			session.setAttribute("userEmail", email);
 			return "success";
 		} else {
 			return "Some error occured";
