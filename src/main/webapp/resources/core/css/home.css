@@ -7,11 +7,14 @@
 	margin: 50px 100px 100px 100px;
 }
 
-#userPurpose1, #userPurpose2, #userPurpose3 {
+#userPurpose1, #userPurpose2 {
 	max-width: 650px;
 	margin: 0 auto;
 }
-
+#userPurpose3{
+	max-width: 900px;
+	margin: 0 auto;
+}
 #userPurpose1 btn-group, #userPurpose2 btn-group, #userPurpose3 btn-group
 	{
 	padding: auto 750px

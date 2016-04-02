@@ -2,7 +2,6 @@ function displayUserPurpose1() {
 	$("#userPurpose1").css("display", "block");
 	$("#userPurpose2").css("display", "none");
 	$("#userPurpose3").css("display", "none");
-
 }
 function displayUserPurpose2() {
 	$("#userPurpose1").css("display", "none");
@@ -14,7 +13,7 @@ function displayUserPurpose3() {
 	$("#userPurpose2").css("display", "none");
 	$("#userPurpose3").css("display", "block");
 	calculateNoOfEmployees();
-	setPaginationNav(1);
+	$('#userPurpose3 .pagination li:nth-child(2) a').trigger('click');
 }
 var totalEmployee;
 var totalEmpCal;
@@ -82,49 +81,51 @@ function chngePreNavContent(no) {
 }
 function setPaginationNav(event) {
 	var currentNo = ($(event.target).text());
-
-	var to = currentNo * 10;
-	var from = to - 9;
-	var boundary = from + "-" + to;
-	$.post("superUser/listOfUser", {
-		count : boundary
+	var end = currentNo * 10;
+	var start = end - 9;
+	$.get("superUser/listOfUser", {
+		start : start,
+		end : end
 	}, function(data) {
-		var json = JSON.parse(data);
-		var totalMessages = Object.keys(json);// change data to object from
-												// string
-		$('#userPurpose3 .table tbody tr').remove();
-		if (totalMessages.length > 0) {
+		if (data != "not found") {
+			var json = JSON.parse(data);
+			var totalMessages = Object.keys(json);// change data to object
+													// from
+			// string
+			$('#userPurpose3 .table tbody tr').remove();
+			if (totalMessages.length > 0) {
 
-			for (var i = 1; i <= totalMessages.length; i++) {
-				var name = json[i].Name;
-				var email = json[i].Email;
-				var manager = json[i].Manager;
-				var role = json[i].Role;
-				var desgn = json[i].Designation;
-				var status = json[i].Status;
-				$('#userPurpose3 .table').append(
-						'<tr>\n\
-	                <th>' + name
-								+ '</th>\n\
-	                <th>' + email
-								+ '</th>\n\
-	                <th>' + manager
-								+ '</th>\n\
-	                <th>' + role
-								+ '</th>\n\
-	                <th>' + desgn
-								+ '</th>\n\
-	                <th>' + status
-								+ '</th>\n\
+				for (var i = 1; i <= totalMessages.length; i++) {
+					var name = json[i].Name;
+					var email = json[i].Email;
+					var manager = json[i].Manager;
+					var role = json[i].Role;
+					var desgn = json[i].Designation;
+					var status = json[i].Status;
+					$('#userPurpose3 .table').append(
+							'<tr>\n\
+	                <td>' + name
+									+ '</td>\n\
+	                <td>' + email
+									+ '</td>\n\
+	                <td>'
+									+ manager
+									+ '</td>\n\
+	                <td>' + role
+									+ '</td>\n\
+	                <td>' + desgn
+									+ '</td>\n\
+	                <td>' + status
+									+ '</td>\n\
 	              </tr>');
 
+				}
 			}
-
 		} else {
 			alert("No data available")
 		}
 	});
-	$("#paginationCounter .btn-default").html(boundary);
+	$("#paginationCounter .btn-default").html(start + "-" + end);
 
 }
 function getSuperEdit() {
@@ -133,9 +134,28 @@ function getSuperEdit() {
 		$.post("superUser/editBySuperUser", {
 			email : emailid
 		}, function(data) {
-			alert(data);
+			if (data != "not found") {
+				var json = JSON.parse(data);
+				var totalMessages = Object.keys(json);
+				if (totalMessages.length > 0) {
+
+					var name = json.Name;
+					var manager = json.Manager;
+					var role = json.Role;
+					var desgn = json.Designation;
+					$('#userPurpose2 #personName').attr("placeholder", name);
+					$('#userPurpose2 #personManager').attr("placeholder",
+							manager);
+					$('#userPurpose2 #personRole').attr("placeholder", role);
+					$('#userPurpose2 #personDesignation').val(desgn);
+				}
+			} else {
+				alert("No data available")
+			}
 		});
 
+	} else {
+		alert("Invalid emailID")
 	}
 
 }
@@ -196,11 +216,13 @@ $('#sendToUpdate').submit(function(event) {
 	});
 });
 $(window).load(function() {
-	$("#heading0").attr("aria-expanded", "true");
-	$("#heading0 a").addClass("collapsed"); 
-	$("#collapse0").addClass("in"); 
+	/*$("#heading0").attr("aria-expanded", "true");
+	$("#heading0 a").addClass("collapsed");
+	$("#collapse0").addClass("in");*/
+	$('#sendToUpdate, #addNewUser').trigger("reset");
+
 });
 
-$(".nav-stacked li").click(function(){
-    $(this).children().children().toggle();
+$(".nav-stacked li").click(function() {
+	$(this).children().children().toggle();
 });

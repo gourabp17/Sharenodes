@@ -73,6 +73,7 @@ public class LoginFromController {
 			session.setAttribute("succesfullogin", username);
 			session.setAttribute("userRole", userType);
 			session.setAttribute("userEmail", email);
+			session.setAttribute("cname", cname);
 			return "success";
 		} else {
 			return "Some error occured";

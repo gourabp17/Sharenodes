@@ -182,7 +182,7 @@ function popupReg() {
 
 $(window).load(function() {
 	var winHeight=($(window).height())+"px";
-	$('#homediv').css({
+	$('#homediv, #allBody').css({
 		"min-height" : winHeight
 	});
 });

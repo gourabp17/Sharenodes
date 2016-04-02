@@ -1,6 +1,6 @@
 <link href="resources/core/css/home.css" rel="stylesheet" />
 <%@include file="../header.jsp"%>
-<div class="container">
+<div class="container" id="allBody">
 	<div class="row">
 
 		<div class="col-md-2" style="padding-right: 0px">

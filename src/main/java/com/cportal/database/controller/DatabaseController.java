@@ -104,7 +104,7 @@ public class DatabaseController {
 
 				ps2.setString(1, username);
 				ps2.setString(2, password);
-				ps2.setString(3, "1");
+				ps2.setString(3, "active");
 
 				ResultSet rs2 = ps2.executeQuery();
 				if (rs2 != null) {
@@ -178,10 +178,7 @@ public class DatabaseController {
 
 	}
 
-	public void addUser(EditUser newuser) {
-
-	}
-
+	
 	public boolean verifyUser(String email, String code) {
 		Connection connection = null;
 		boolean udpated = false;

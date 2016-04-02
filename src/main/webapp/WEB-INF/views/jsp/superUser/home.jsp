@@ -1,6 +1,6 @@
 <link href="resources/core/css/home.css" rel="stylesheet" />
 <%@include file="../header.jsp"%>
-<div class="superuserBase">
+<div class="superuserBase" id="allBody">
 	<img src="resources/core/images/add_user.png" alt="Add User"
 		onclick="window.location.href = '#userPurpose1'; displayUserPurpose1()" />
 	<img src="resources/core/images/edit_user.png" alt="Add User"
@@ -98,14 +98,14 @@
 			</span>
 		</div>
 		<form  method="post" commandName="sendToUpdate"
-			id="sendToUpdate">
+			id="sendToUpdate" autocomplete="off">
 			<input type="hidden" class="form-control" id="personEmail"
 				name="personEmail">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">Name</span> <input type="text"
 						class="form-control" id="personName" name="personName"
-						placeholder="John Paul" maxlength="25">
+						placeholder="John Paul" maxlength="25" autocomplete="off">
 				</div>
 			</div>
 			<div class="form-group">
