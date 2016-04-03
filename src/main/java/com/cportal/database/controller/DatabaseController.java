@@ -27,7 +27,6 @@ public class DatabaseController {
 			String uCode = UUID.randomUUID().toString().replaceAll("-", "");
 
 			connection = (ConfigDB.retrnConf()).getConnection();
-			System.out.println(connection);
 			CallableStatement statement = (CallableStatement) connection
 					.prepareCall("{call newUser_sp_CompanyRegistration(?,?,?,?,?,?,?,?)}");
 			statement.setString(1, user.getRegName());
@@ -40,11 +39,9 @@ public class DatabaseController {
 			statement.setString(8, "0");
 
 			int insertStat = statement.executeUpdate();
-			System.out.println("insertStat " + insertStat);
 			if (insertStat > 0) {
 				MailGun mg = new MailGun();
 				mg.sendVerificationMail(user.getRegEmail(), uEmail, uCode);
-				System.out.println("mail send " + insertStat);
 			}
 		} catch (SQLException sql) {
 			if (sql.getErrorCode() == MYSQL_DUPLICATE_PK) {
@@ -142,7 +139,6 @@ public class DatabaseController {
 			String query = "select * from companyRegistration where email=?";
 			// STEP 2
 			connection = (ConfigDB.retrnConf()).getConnection();
-			System.out.println(connection);
 			PreparedStatement ps = connection.prepareStatement(query);
 
 			ps.setString(1, EmailID);
@@ -185,7 +181,6 @@ public class DatabaseController {
 		try {
 
 			connection = (ConfigDB.retrnConf()).getConnection();
-			System.out.println(connection);
 			CallableStatement statement = (CallableStatement) connection
 					.prepareCall("{call activate_sp_CompanyRegistration(?,?,?)}");
 

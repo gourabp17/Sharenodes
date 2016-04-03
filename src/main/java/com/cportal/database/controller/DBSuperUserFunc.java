@@ -36,7 +36,6 @@ public class DBSuperUserFunc {
 			statement.setString(8, "active");
 
 			int insertStat = statement.executeUpdate();
-			System.out.println("insertStat " + insertStat);
 			if (insertStat > 0) {
 				exits = true;
 			}
@@ -236,7 +235,6 @@ public class DBSuperUserFunc {
 				statement.append(" user_email= '").append(editUser.getPersonEmail()).append("' where user_email='")
 				.append(editUser.getPersonEmail()).append("' and user_company_name='").append(company).append("' and statusCode='active'");
 			}
-			System.out.println(statement.toString());
 			CallableStatement calStatement = (CallableStatement) connection
 					.prepareCall(statement.toString());
 

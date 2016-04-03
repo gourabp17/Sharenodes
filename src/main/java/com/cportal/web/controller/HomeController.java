@@ -53,7 +53,6 @@ public class HomeController {
 	@RequestMapping(value = { "/superUser/editBySuperUser" }, method = RequestMethod.POST)
 	public @ResponseBody String editBySuperUser(@RequestParam("email") String email, HttpSession session) {
 		JSONObject userJson = new DBSuperUserFunc().searchUser(email, session.getAttribute("cname").toString());
-		System.out.println(userJson);
 		if (userJson == null) {
 			return "not found";
 		} else {
