@@ -171,4 +171,93 @@ public class DBSuperUserFunc {
 		}
 		return obj;
 	}
+
+	public boolean deleteUser(String email, String companyName) {
+		Connection connection = null;
+		boolean udpated = false;
+		try {
+
+			connection = (ConfigDB.retrnConf()).getConnection();
+		CallableStatement statement = (CallableStatement) connection
+					.prepareCall("{call delete_sp_CompanyUser(?,?,?)}");
+
+			statement.setString(1, email);
+			statement.setString(2, companyName);
+			statement.setString(3, "active");
+
+			int updateStat = statement.executeUpdate();
+			if (updateStat > 0) {
+				udpated = true;
+			}
+		} catch (SQLException e) {
+			udpated = false;
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return udpated;
+	}
+
+	public boolean updateUser(EditUser editUser, String company) {
+		Connection connection = null;
+		StringBuffer statement= new StringBuffer();
+		boolean udpated = false;
+		try {
+
+			connection = (ConfigDB.retrnConf()).getConnection();
+		
+			if(company!=null && editUser.getPersonEmail()!=null && !((editUser.getPersonEmail().trim()).isEmpty()))
+			{
+				statement.append("UPDATE  company_users SET ");
+				
+				if(editUser.getPersonName()!=null && !(editUser.getPersonName().trim().isEmpty())){
+					statement.append("user_name= '").append(editUser.getPersonName()).append("', ");
+				}
+				if(editUser.getPersonPassword()!=null && !(editUser.getPersonPassword().trim().isEmpty())){
+					statement.append("user_login_password= '").append(editUser.getPersonPassword()).append("', ");
+				}
+				if(editUser.getPersonManager()!=null && !(editUser.getPersonManager().trim().isEmpty())){
+					statement.append("user_manage_email= '").append(editUser.getPersonManager()).append("', ");
+				}
+				if(editUser.getPersonRole()!=null && !(editUser.getPersonRole().trim().isEmpty())){
+					statement.append("user_role= '").append(editUser.getPersonRole()).append("', ");
+				}
+				if(editUser.getPersonDesignation()!=null && !(editUser.getPersonDesignation().trim().isEmpty())){
+					statement.append("user_designation= '").append(editUser.getPersonDesignation()).append("',");
+				}
+				statement.append(" user_email= '").append(editUser.getPersonEmail()).append("' where user_email='")
+				.append(editUser.getPersonEmail()).append("' and user_company_name='").append(company).append("' and statusCode='active'");
+			}
+			System.out.println(statement.toString());
+			CallableStatement calStatement = (CallableStatement) connection
+					.prepareCall(statement.toString());
+
+			int updateStat = calStatement.executeUpdate();
+			if (updateStat > 0) {
+				udpated = true;
+			}
+		} catch (SQLException e) {
+			udpated = false;
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return udpated;
+	}
 }

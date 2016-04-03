@@ -66,10 +66,10 @@
 						<div class="form-group">
 							<select class="form-control" id="personDesignation"
 								name="personDesignation">
-								<option value="General">General</option>
+								<option value="GENERAL">GENERAL</option>
 								<option value="HR">HR</option>
-								<option value="Accountant">Accountant</option>
-								<option value="Founder|CEO">Founder|CEO</option>
+								<option value="ACCOUNTANT">ACCOUNTANT</option>
+								<option value="FOUNDER|CEO">FOUNDER|CEO</option>
 							</select>
 						</div>
 					</div>
@@ -144,10 +144,10 @@
 						<div class="form-group">
 							<select class="form-control" id="personDesignation"
 								name="personDesignation">
-								<option value="General">General</option>
+								<option value="GENERAL">GENERAL</option>
 								<option value="HR">HR</option>
-								<option value="Accountant">Accountant</option>
-								<option value="Founder|CEO">Founder|CEO</option>
+								<option value="ACCOUNTANT">ACCOUNTANT</option>
+								<option value="FOUNDER|CEO">FOUNDER|CEO</option>
 							</select>
 						</div>
 					</div>

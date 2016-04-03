@@ -1,25 +1,18 @@
 package com.cportal.web.controller;
 
-import java.util.Calendar;
-import java.util.LinkedList;
-
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cportal.database.controller.DBSuperUserFunc;
-import com.cportal.database.controller.DatabaseController;
 import com.cportal.model.EditUser;
-import com.cportal.model.User;
-import com.cportal.ui.model.CompanyBroadcast;
 
 @Controller
 public class HomeController {
@@ -42,19 +35,20 @@ public class HomeController {
 		if ((new DBSuperUserFunc()).companyNewUser(editUser, session.getAttribute("userEmail").toString())) {
 			return "success";
 		} else {
-			return "Company Already Register";
+			return "Error occured. Try Later";
 		}
 
 	}
 
 	@RequestMapping(value = { "/superUser/deleteBySuperUser" }, method = RequestMethod.POST)
-	public @ResponseBody String deleteBySuperUser(@RequestBody String searchIn) {
-		// input comes as "email=farji@farji.com" split with = and use
-		System.out.println(searchIn);
-
-		return "success";
-
-	}
+	public @ResponseBody String deleteBySuperUser(@RequestParam("email") String email, HttpSession session) {
+		
+		if ((new DBSuperUserFunc()).deleteUser(email, session.getAttribute("cname").toString())) {
+			return "Deleted";
+		} else {
+			return "Failed. Try later";
+		}
+}
 
 	@RequestMapping(value = { "/superUser/editBySuperUser" }, method = RequestMethod.POST)
 	public @ResponseBody String editBySuperUser(@RequestParam("email") String email, HttpSession session) {
@@ -69,11 +63,12 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = { "/superUser/sendToUpdate" }, method = RequestMethod.POST)
-	public @ResponseBody String sendToUpdate(@ModelAttribute("sendToUpdate") EditUser editUser, ModelMap model) {
-		System.out.println("edituser: " + editUser.getPersonDesignation());
-
-		return "success";
-
+	public @ResponseBody String sendToUpdate(@ModelAttribute("sendToUpdate") EditUser editUser, HttpSession session) {
+		if ((new DBSuperUserFunc()).updateUser(editUser, session.getAttribute("cname").toString())) {
+			return "success";
+		} else {
+			return "Error occured. Try Later";
+		}
 	}
 
 	@RequestMapping(value = { "/superUser/listOfUser" }, method = RequestMethod.GET)

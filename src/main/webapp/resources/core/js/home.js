@@ -147,7 +147,7 @@ function getSuperEdit() {
 					$('#userPurpose2 #personManager').attr("placeholder",
 							manager);
 					$('#userPurpose2 #personRole').attr("placeholder", role);
-					$('#userPurpose2 #personDesignation').val(desgn);
+					$('#userPurpose2 #personDesignation').val(desgn.toUpperCase());
 				}
 			} else {
 				alert("No data available")
@@ -186,8 +186,8 @@ $('#addNewUser').submit(function(event) {
 
 function deleteUser() {
 	emailid = $("#toEditPersonEmail").val().trim();
-	if (emailid.length > 3) {
-		$.post("deleteBySuperUser", {
+	if (emailid.length > 3 && confirm("Press OK to delete")) {
+		$.post("superUser/deleteBySuperUser", {
 			email : emailid
 		}, function(data) {
 			alert(data);
