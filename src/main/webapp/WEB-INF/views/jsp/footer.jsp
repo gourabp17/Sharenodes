@@ -3,7 +3,7 @@
 
 		<footer>
 			<p class="text-left navbar-text">
-				Developer: 
+				Author: 
 				<a href="http://www.gourabpaul.info"> <span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Gourab Paul </a>
 				<a href="http://www.pradeepinfo.sharenodes.com"> <span class="glyphicon glyphicon-link" aria-hidden="true"> </span> Pradeep Tripathi </a>
 			</p>
