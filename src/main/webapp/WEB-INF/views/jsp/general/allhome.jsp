@@ -15,7 +15,7 @@
 			<li><a href="#">Payslip</a></li>
 			<li><a href="#">AllHours</a></li>
 			<li><a href="#">People</a></li>
-			<li><a href="#">Co-buddy</a></li>
+			<li><a href="buddy">Buddy</a></li>
 		</ul>
 	
 </div>

@@ -113,7 +113,7 @@
 							<div class="input-group">
 								<span class="input-group-addon">Email</span> <input type="email"
 									class="form-control" id="regEmail" name="regEmail"
-									placeholder="xyz@example.com" maxlength="30"
+									placeholder="xyz@example.com" maxlength="50"
 									data-toggle="popover" data-trigger="hover" data-placement="top"
 									data-content="User will be the super user. Can add/modify/delete other users"
 									required>

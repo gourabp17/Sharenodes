@@ -15,7 +15,7 @@ import com.cportal.database.controller.DBSuperUserFunc;
 import com.cportal.model.EditUser;
 
 @Controller
-public class HomeController {
+public class SuperController {
 
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homeAuthorization(HttpSession session) {
