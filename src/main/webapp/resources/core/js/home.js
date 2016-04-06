@@ -90,7 +90,7 @@ function setPaginationNav(event) {
 		if (data != "not found") {
 			var json = JSON.parse(data);
 			var totalMessages = Object.keys(json);// change data to object
-													// from
+			// from
 			// string
 			$('#userPurpose3 .table tbody tr').remove();
 			if (totalMessages.length > 0) {
@@ -147,7 +147,8 @@ function getSuperEdit() {
 					$('#userPurpose2 #personManager').attr("placeholder",
 							manager);
 					$('#userPurpose2 #personRole').attr("placeholder", role);
-					$('#userPurpose2 #personDesignation').val(desgn.toUpperCase());
+					$('#userPurpose2 #personDesignation').val(
+							desgn.toUpperCase());
 				}
 			} else {
 				alert("No data available")
@@ -216,16 +217,28 @@ $('#sendToUpdate').submit(function(event) {
 	});
 });
 $(window).load(function() {
-	
+
 	$('#sendToUpdate, #addNewUser').trigger("reset");
 
 });
 
-$(".nav-stacked li").click(function() {
-	$(this).children().children().toggle();
+/*
+ * $(".nav-stacked li").click(function() {
+ * $(this).children().children().toggle(); });
+ * $("#menu-toggle").click(function(e) { e.preventDefault(); alert()
+ * $("#wrapper").toggleClass("toggled"); });
+ */
+$(window).on('scroll', function() {
+	fixnavbar();
 });
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    alert()
-    $("#wrapper").toggleClass("toggled");
-});
+function fixnavbar() {
+	$('#user_button').toggle(function() {
+		$("#user_button").css({
+			borderBottomLeftRadius : "0px"
+		});
+	}, function() {
+		$("#user_button").css({
+			borderBottomLeftRadius : "5px"
+		});
+	});
+}

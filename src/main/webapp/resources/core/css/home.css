@@ -11,10 +11,12 @@
 	max-width: 650px;
 	margin: 0 auto;
 }
-#userPurpose3{
+
+#userPurpose3 {
 	max-width: 900px;
 	margin: 0 auto;
 }
+
 #userPurpose1 btn-group, #userPurpose2 btn-group, #userPurpose3 btn-group
 	{
 	padding: auto 750px
@@ -40,17 +42,19 @@
 #accordion .panel-heading {
 	background-color: #5bc0de
 }
-#midContent{
+
+#midContent {
 	padding-right: 0px;
 	padding-left: 0px;
 }
-.thumbnail{
+
+.thumbnail {
 	margin: 10px 0px;
 }
+
 #individualDiv ul li {
 	text-align: center;
 }
-
 
 #individualDiv .well:nth-of-type(odd) {
 	background: #52cfb6;
@@ -60,14 +64,41 @@
 	border-radius: 0px;
 }
 
-#allHome .nav-stacked .active a{
+#allHome .nav-stacked .active a {
 	background-color: #94a9ab;
 	color: #23527c;
 }
-#allHome .nav-stacked .togl a{
+
+#allHome .nav-stacked .togl a {
 	background-color: #f5f7fa;
 	color: #34c2e0;
 }
+
 #allHome .nav-stacked .togl {
 	display: none;
+}
+
+#showLeftNav, #showRightNav {
+	z-index: 9999;
+	font-size:30px;
+	color:#055869;
+	display: none;
+}
+
+@media screen and (max-width: 985px) {
+	#allHome, #rightNav {
+		display: none
+	}
+	#showLeftNav {
+		position: fixed;
+		top: 52px;
+		left: -5px;
+		display: block;
+	}
+	#showRightNav {
+		position: fixed;
+		top: 52px;
+		right: -5px;
+		display: block;
+	}
 }
