@@ -217,9 +217,16 @@ $('#sendToUpdate').submit(function(event) {
 	});
 });
 $(window).load(function() {
+<<<<<<< HEAD
+	/*$("#heading0").attr("aria-expanded", "true");
+	$("#heading0 a").addClass("collapsed");
+	$("#collapse0").addClass("in");*/
+	setInterval(function() {
+=======
 
+>>>>>>> d4f667914b1ff4c52be8898e7b19dda5c58ab572
 	$('#sendToUpdate, #addNewUser').trigger("reset");
-
+	}, 5);
 });
 
 /*
