@@ -28,7 +28,10 @@ public class LinkRole implements HandlerInterceptor {
 		HttpSession sess = request.getSession();
 		String requestURI = request.getRequestURI();
 		if (requestURI.contains("superUser")) {
-			if (sess.getAttribute("userRole").equals("superUser")) {
+			/*if (sess.getAttribute("userRole").equals("superUser")) {
+				return true;
+			} else */
+			if (requestURI.contains(sess.getAttribute("userRole").toString())) {
 				return true;
 			} else {
 				response.sendRedirect("");
