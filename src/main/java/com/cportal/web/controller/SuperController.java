@@ -1,5 +1,6 @@
 package com.cportal.web.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
@@ -18,7 +19,12 @@ import com.cportal.model.EditUser;
 public class SuperController {
 
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
-	public String homeAuthorization(HttpSession session) {
+	public String homeAuthorization(HttpSession session, HttpServletResponse response) {
+		response.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+		response.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+		response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
+		response.setHeader("Pragma","no-cache");
+
 		String homeJsp = null;
 		homeJsp = session.getAttribute("userRole") + "/home";
 		return homeJsp;

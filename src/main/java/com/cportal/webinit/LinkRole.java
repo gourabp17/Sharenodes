@@ -27,18 +27,14 @@ public class LinkRole implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		HttpSession sess = request.getSession();
 		String requestURI = request.getRequestURI();
-		if (requestURI.contains("superUser")) {
-			/*if (sess.getAttribute("userRole").equals("superUser")) {
-				return true;
-			} else */
-			if (requestURI.contains(sess.getAttribute("userRole").toString())) {
+		
+			if (requestURI.toLowerCase().contains(sess.getAttribute("userRole").toString().toLowerCase())) {
 				return true;
 			} else {
 				response.sendRedirect("");
 				return false;
 			}
-		}
-		return false;
+		
 	}
 
 }
