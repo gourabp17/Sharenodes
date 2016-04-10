@@ -35,19 +35,27 @@
 
 			<div class="row">
 				<div class="holidayDates">
-					kjlj
-					
+					<div class="input-group col-md-2">
+						<input type="text" class="form-control" disabled="disabled"> <span
+							class="input-group-btn">
+							<button class="btn btn-default form-control" type="button">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</span>
+					</div>
+					<!-- /input-group -->
 				</div>
-				
 			</div>
-		</div>
-		<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
-
-			<jsp:include page="../${userRole}/rightNav.jsp" />
-
+<button type="button" class="btn btn-primary">Save</button>
 		</div>
 	</div>
+	<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
+
+		<jsp:include page="../${userRole}/rightNav.jsp" />
+
+	</div>
 </div>
+
 
 <%@include file="../footer.jsp"%>
 

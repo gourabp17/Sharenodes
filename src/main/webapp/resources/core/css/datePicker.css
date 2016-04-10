@@ -14,9 +14,18 @@
   
 .holidayDates{
 	border:1px solid;
-	margin: 20px 20px;
+	margin: 20px 35px;
 	border-radius: 5px;
 	border-color: #32c2fa;
 	background-color:#f2fdff;
-	min-height: 50px
+	min-height: 50px;
+}
+.holidayDates>div{
+	margin: 5px 11px;
+}
+.holidayDates .input-group[class*=col-]{
+	display: inline-table;
+}
+.holidayDates .form-control[disabled]{
+	cursor: default;
 }
