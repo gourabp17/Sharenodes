@@ -8,18 +8,18 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="icon" href="resources/core/images/favicon.ico" type="image/icon">
+<link rel="icon" href="${baseurl}/resources/core/images/favicon.ico" type="image/icon">
 <title>Sharenodes-Home</title>
 
-<spring:url value="/resources/core/css/base.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css"
+<spring:url value="${baseurl}/resources/core/css/base.css" var="coreCss" />
+<spring:url value="${baseurl}/resources/core/css/bootstrap.min.css"
 	var="bootstrapCss" />
 <spring:url value="/resources/core/css/base.css" var="headerMenuCss" />
 
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <link href="${headerMenuCss}" rel="stylesheet" />
-<spring:url value="/resources/core/js/jquery.js" var="jqueryJs" />
+<spring:url value="${baseurl}/resources/core/js/jquery.js" var="jqueryJs" />
 <script src="${jqueryJs}"></script>
 
 </head>
@@ -37,8 +37,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
 				<a href="#" class="navbar-brand brnd">
-				        <img alt="Brand" src="resources/core/images/sharenodes_icon.png">
-				 <b>Sharenodes</b></a>
+				        <img alt="Brand" src="${baseurl}/resources/core/images/sharenodes_icon.png">
+				 <b>Sharenodes ${message}</b></a>
 			</div>
 
 			<div class="collapse navbar-collapse navbar-right " id="collapse-1">

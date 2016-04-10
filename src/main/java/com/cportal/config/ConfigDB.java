@@ -15,6 +15,15 @@ public class ConfigDB {
 	private static String DATABASE_USERNAME;
 	private static String DATABASE_PASSWORD;
 	private static Connection connection;
+	private static String BASEURL;
+
+	public static String getBASEURL() {
+		return BASEURL;
+	}
+
+	public static void setBASEURL(String bASEURL) {
+		BASEURL = bASEURL;
+	}
 
 	private static String getDATABASE_DRIVER() {
 		return DATABASE_DRIVER;
@@ -77,7 +86,7 @@ public class ConfigDB {
 			setDATABASE_USERNAME(prop.getProperty("DATABASE_USERNAME"));
 			setDATABASE_DRIVER(prop.getProperty("DATABASE_DRIVER"));
 			setDATABASE_PASSWORD(prop.getProperty("DATABASE_PASSWORD"));
-
+			setBASEURL(prop.getProperty("BASEURL"));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

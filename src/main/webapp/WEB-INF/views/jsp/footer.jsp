@@ -11,8 +11,8 @@
 		</footer>
 	</div>
 </div>
-<spring:url value="/resources/core/js/base.js" var="coreJs" />
-<spring:url value="/resources/core/js/bootstrap.min.js"
+<spring:url value="${baseurl}/resources/core/js/base.js" var="coreJs" />
+<spring:url value="${baseurl}/resources/core/js/bootstrap.min.js"
 	var="bootstrapJs" />
 
 <script src="${coreJs}"></script>

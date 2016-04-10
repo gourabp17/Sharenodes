@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.cportal.config.ConfigDB;
 import com.cportal.database.controller.DatabaseController;
 import com.cportal.model.LoginCredential;
 import com.cportal.model.LoginUser;
@@ -26,13 +28,15 @@ import com.cportal.ui.model.GenarateCaptchaImg;
 public class LoginFromController {
 
 	@RequestMapping(value = { "/","/index" }, method = RequestMethod.GET)
-	public String printWelcome(ModelMap model, HttpSession sess) {
-		System.out.println(sess.getAttribute("succesfullogin"));
+	public ModelAndView printWelcome(HttpSession sess) {
+		
 		if (sess.getAttribute("succesfullogin") != null) {
 
-			return "redirect:/home";
+			return new ModelAndView("redirect:/home","baseurl",ConfigDB.retrnConf().getBASEURL());
 		}
-		return "hello";
+		ModelAndView modelAndView = new ModelAndView("hello");
+		modelAndView.addObject("baseurl", ConfigDB.retrnConf().getBASEURL());
+		return modelAndView;
 
 	}
 

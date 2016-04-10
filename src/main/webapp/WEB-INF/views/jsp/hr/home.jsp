@@ -12,7 +12,7 @@
 			style="border-left: 1px solid #CFCFCF; border-right: 1px solid #CFCFCF;">
 
 			
-			<div class="col-xs-6 col-md-4">
+			<!-- <div class="col-xs-6 col-md-4">
 				<div href="#" class="thumbnail">
 					<div class="caption">
 						<h4>Thumbnail label</h4>
@@ -85,7 +85,8 @@
 					</div>
 				</div>
 			</div>
-
+ -->
+ Coming Soon
 		</div>
 		<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
 

@@ -1,0 +1,22 @@
+#midContent .glyphicon-plus{
+	font-size: 20px;
+	cursor: pointer;
+}
+#midContent .glyphicon-plus{
+        color: #46ccdb;
+    transition-property: color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+  }
+#midContent .glyphicon-plus:hover {
+        color: #2db34a;
+  }
+  
+.holidayDates{
+	border:1px solid;
+	margin: 20px 20px;
+	border-radius: 5px;
+	border-color: #32c2fa;
+	background-color:#f2fdff;
+	min-height: 50px
+}

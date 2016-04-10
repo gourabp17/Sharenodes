@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cportal.config.ConfigDB;
+
 public class LoggingInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
@@ -24,7 +26,8 @@ public class LoggingInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// System.out.println("---method executed---");
+		modelAndView.addObject("baseurl", ConfigDB.retrnConf().getBASEURL());
+		System.out.println("---Request Completed---"+ConfigDB.getBASEURL());
 	}
 
 	@Override
