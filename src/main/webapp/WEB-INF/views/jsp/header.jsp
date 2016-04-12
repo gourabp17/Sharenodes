@@ -56,7 +56,7 @@
 									${succesfullogin} </a>
 								<ul class="dropdown-menu" id="dropdownlogout">
 									<li><a href=#>PROFILE</a></li>
-									<li><a href="loginform/logout">Logout</a></li>
+									<li><a href="${baseurl}/loginform/logout">Logout</a></li>
 								</ul></li>
 						</c:otherwise>
 					</c:choose>

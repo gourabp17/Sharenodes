@@ -117,7 +117,7 @@ public class LoginFromController {
 
 		session.removeAttribute("succesfullogin");
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:"+ConfigDB.retrnConf().getBASEURL();
 	}
 
 	@RequestMapping(value = { "/loginform/forgetpassword" }, method = RequestMethod.GET)

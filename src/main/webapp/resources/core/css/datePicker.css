@@ -29,3 +29,6 @@
 .holidayDates .form-control[disabled]{
 	cursor: default;
 }
+.holidayDates input{
+	padding: 0px 4px;
+}

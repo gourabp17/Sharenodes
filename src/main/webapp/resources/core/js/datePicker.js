@@ -41,16 +41,34 @@ function updateArrayDiv(){
 		for(var i=0; i<arrUnique.length;i++ ){
 			$(".holidayDates").append('<div class="input-group col-md-2">\n\
 			<input type="text" class="form-control" disabled="disabled" value="'+arrUnique[i]+'">\n\
-			<span class="input-group-btn"><button class="btn btn-default form-control" type="button">\n\
+			<span class="input-group-btn"><button class="btn btn-default form-control" type="button" onclick="deleteHoliday(this)">\n\
 			<span class="glyphicon glyphicon-remove" aria-hidden="true">\n\
 			</span>	</button></span></div>')
 		}
 		
 	}
 	else{
-		// $(".holidayDates").html("<div>No Holiday</div")
+		 $(".holidayDates").html('<div class="alert alert-warning" role="alert" >No Holiday</div');
 	}
 }
 function getHolidayFromServer(){
+	updateArrayDiv();
+}
+function saveHoliday(){
+	if (arrUnique.length > 0) {
+		$.post("saveHoliday", {
+			holidaylist : arrUnique.toString()
+		}, function(data) {
+			alert(data);
+		});
+
+	}
+}
+function deleteHoliday(el){
+	
+	var index = arrUnique.indexOf($(el).parent().siblings("input").val());
+	if(index != -1) {
+		arrUnique.splice(index, 1);
+	}
 	updateArrayDiv();
 }
