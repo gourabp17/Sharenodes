@@ -216,14 +216,14 @@ $('#sendToUpdate').submit(function(event) {
 		}
 	});
 });
-$(window).load(function() {
+$(document).ready(function() {
 	/*$("#heading0").attr("aria-expanded", "true");
 	$("#heading0 a").addClass("collapsed");
 	$("#collapse0").addClass("in");*/
-	setInterval(function() {
+	setTimeout(function() {
 
 	$('#sendToUpdate, #addNewUser').trigger("reset");
-	}, 5);
+	}, 10);
 });
 
 /*
