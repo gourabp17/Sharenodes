@@ -36,9 +36,10 @@
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand brnd">
+				<a href="${baseurl}" class="navbar-brand brnd">
 				        <img alt="Brand" src="${baseurl}/resources/core/images/sharenodes_icon.png">
-				 <%-- <b>Sharenodes ${message}</b></a> --%>
+				 <%-- <b>Sharenodes ${message}</b> --%>
+				 </a>
 		 	</div>
 
 			<div class="collapse navbar-collapse navbar-right " id="collapse-1">

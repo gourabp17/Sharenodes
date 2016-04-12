@@ -21,6 +21,7 @@ public class LinkRole implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
 			throws Exception {
+		if(arg3 == null) return;
 		arg3.addObject("baseurl",ConfigDB.retrnConf().getBASEURL());
 		System.out.println("---Request Completed---"+ConfigDB.getBASEURL());
 
