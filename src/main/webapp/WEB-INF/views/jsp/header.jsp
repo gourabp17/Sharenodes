@@ -38,8 +38,8 @@
 				</button>
 				<a href="#" class="navbar-brand brnd">
 				        <img alt="Brand" src="${baseurl}/resources/core/images/sharenodes_icon.png">
-				 <b>Sharenodes ${message}</b></a>
-			</div>
+				 <%-- <b>Sharenodes ${message}</b></a> --%>
+		 	</div>
 
 			<div class="collapse navbar-collapse navbar-right " id="collapse-1">
 				<ul class="nav navbar-nav" id="myHeader"">

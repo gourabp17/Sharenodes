@@ -17,7 +17,7 @@ public class GenarateCaptchaImg {
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         String key = key1;
 
-        BufferedImage bufferedImage = new BufferedImage(90, 20,BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage(90, 20,BufferedImage.OPAQUE);
         Graphics graphics = bufferedImage.getGraphics();
         Color c = new Color(238,238,238);
         graphics.setColor(c);
@@ -25,6 +25,7 @@ public class GenarateCaptchaImg {
         graphics.setColor(Color.DARK_GRAY);
         graphics.setFont(new Font("Arial Black", Font.ITALIC, 20));
         graphics.drawString(key, 10, 17);
+        
         path="/tmp/captcha_img";
          fileName= uuid.substring(6, 15)+".png";
         File files = new File(path);
