@@ -7,8 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="icon" href="${baseurl}/resources/core/images/favicon.ico" type="image/icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="${baseurl}/resources/core/images/favicon.ico"
+	type="image/icon">
 <title>Sharenodes-Home</title>
 
 <spring:url value="${baseurl}/resources/core/css/base.css" var="coreCss" />
@@ -19,7 +20,8 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 <link href="${headerMenuCss}" rel="stylesheet" />
-<spring:url value="${baseurl}/resources/core/js/jquery.js" var="jqueryJs" />
+<spring:url value="${baseurl}/resources/core/js/jquery.js"
+	var="jqueryJs" />
 <script src="${jqueryJs}"></script>
 
 </head>
@@ -36,11 +38,10 @@
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a href="${baseurl}" class="navbar-brand brnd">
-				        <img alt="Brand" src="${baseurl}/resources/core/images/sharenodes_icon.png">
-				 <%-- <b>Sharenodes ${message}</b> --%>
-				 </a>
-		 	</div>
+				<a href="${baseurl}" class="navbar-brand brnd"> <img alt="Brand"
+					src="${baseurl}/resources/core/images/sharenodes_icon.png"> <%-- <b>Sharenodes ${message}</b> --%>
+				</a>
+			</div>
 
 			<div class="collapse navbar-collapse navbar-right " id="collapse-1">
 				<ul class="nav navbar-nav" id="myHeader"">
@@ -72,7 +73,7 @@
 
 
 
-
+	<c:if test="${empty succesfullogin}">
 
 	<div class="modal" id="createUserModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
@@ -189,8 +190,7 @@
 				</div>
 
 
-				<form:form id="loginForm" method="post"
-					commandName="login">
+				<form:form id="loginForm" method="post" commandName="login">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="email">Email address:</label>
@@ -220,7 +220,7 @@
 
 					</div>
 
-								
+
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary">
 							<span class="glyphicon glyphicon-lock"> </span> Login
@@ -268,3 +268,4 @@
 			</div>
 		</div>
 	</div>
+	</c:if>
