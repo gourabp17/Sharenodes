@@ -5,20 +5,22 @@
 
 <div id="allHome">
 	<ul class="nav nav-pills nav-stacked">
-		<li><a href="home">Dashboard <sub>cs</sub></a></li>
-		<li><a href="news">News <sub>cs</sub></a></li>
-		<li><a href="leaves">Leave <sub>cs</sub> &nbsp;&nbsp; <span class="caret"></span></a>
+		<li><a href="${baseurl}/home">Dashboard <sub>cs</sub></a></li>
+		<li><a href="${baseurl}/news">News <sub>cs</sub></a></li>
+		<li><a href="${baseurl}/leaves">Leave <sup>new</sup> <!--   &nbsp;&nbsp; <span class="caret"></span> -->
+		</a>
 
-
+<!-- 
 			<ul class="nav nav-pills nav-stacked">
 
 				<li class="togl"><a href="#">SickLeave</a></li>
 				<li class="togl"><a href="#">Casual Leave</a></li>
-			</ul></li>
-		<li><a href="payslip">Payslip <sub>cs</sub></a></li>
-		<li><a href="allhours">AllHours <sub>cs</sub></a></li>
-		<li><a href="people">People <sub>cs</sub></a></li>
-		<li><a href="buddy">Buddy <sup>new</sup></a></li>
+			</ul> -->
+			</li>
+		<li><a href="${baseurl}/payslip">Payslip <sub>cs</sub></a></li>
+		<li><a href="${baseurl}/allhours">AllHours <sub>cs</sub></a></li>
+		<li><a href="${baseurl}/people">People <sub>cs</sub></a></li>
+		<li><a href="${baseurl}/buddy">Buddy <sup>new</sup></a></li>
 	</ul>
 
 </div>
