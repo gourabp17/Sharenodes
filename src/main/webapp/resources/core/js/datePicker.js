@@ -72,3 +72,19 @@ function deleteHoliday(el){
 	}
 	updateArrayDiv();
 }
+
+$("#radioUnit #option1").click(function() {
+	$("#sleave").attr("placeholder",  "10 hr/day");
+	$("#eleave").attr("placeholder",  "15 hr/day");
+	$("#cleave").attr("placeholder",  "5 hr/day");
+});
+$("#radioUnit #option2").click(function() {
+	$("#sleave").attr("placeholder",  "10 days/month");
+	$("#eleave").attr("placeholder",  "15 days/month");
+	$("#cleave").attr("placeholder",  "5 days/month");
+});
+$("#radioUnit #option3").click(function() {
+	$("#sleave").attr("placeholder",  "10 days/year");
+	$("#eleave").attr("placeholder",  "15 days/year");
+	$("#cleave").attr("placeholder",  "5 days/year");
+});

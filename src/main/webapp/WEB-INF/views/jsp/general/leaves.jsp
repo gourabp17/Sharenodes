@@ -24,7 +24,7 @@
 						<div class="col-md-2" style="margin-left: 10px">
 
 							<div class="form-group">
-								<select class="form-control">
+								<select class="form-control" id="toFul">
 									<option value="half">Half Day</option>
 									<option value="full" selected>Full Day</option>
 								</select>
@@ -42,7 +42,7 @@
 						<div class="col-md-2" style="margin-left: 10px">
 
 							<div class="form-group">
-								<select class="form-control">
+								<select class="form-control" id="frmFul">
 									<option value="half">Half Day</option>
 									<option value="full" selected>Full Day</option>
 								</select>
@@ -52,6 +52,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
+					<span id="noOfLeaves"><span class="badge">0</span> days </span>
 							<button type="button" class="btn btn-warning" id="getBetween">Calculate
 								Leaves</button>
 							<button type="submit" class="btn btn-primary">Apply
