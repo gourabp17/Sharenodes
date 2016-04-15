@@ -16,7 +16,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
 		HttpSession sess = request.getSession();
 		System.out.println(sess.getAttribute("succesfullogin"));
 		if (sess.getAttribute("succesfullogin") == null) {
-			response.sendRedirect("index");
+			response.sendRedirect(ConfigDB.retrnConf().getBASEURL());
 			;
 			return false;
 		}

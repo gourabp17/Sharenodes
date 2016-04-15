@@ -17,6 +17,7 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
 
       ServletRegistration.Dynamic dispatcher =
         container.addServlet("dispatcher", new DispatcherServlet(appContext));
+        container.addListener(new SessionListener());
       dispatcher.setLoadOnStartup(1);
       dispatcher.addMapping("/");
     }
