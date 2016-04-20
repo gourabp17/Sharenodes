@@ -40,16 +40,16 @@
 							Leaves</label>
 						<div class="col-sm-2" style="margin-left: -12px">
 							<input type="text" class="form-control" id="sleave"
-								placeholder="10 hr/day">
+								placeholder="1 hr/day">
 						</div>
 						<div class="btn-group" data-toggle="buttons" style="float: left;" id="radioUnit">
 							<label class="btn btn-primary active" id="option1" > <input
 								type="radio" name="options" autocomplete="off"
-								checked> Hourly
-							</label> <label class="btn btn-primary" id="option2" > <input type="radio"
-								name="options" autocomplete="off"> Monthly
+								checked value="Hourly"> Hourly
+							</label> <label class="btn btn-primary" id="option2"> <input type="radio"
+								name="options" autocomplete="off" value="Monthly"> Monthly
 							</label> <label class="btn btn-primary"  id="option3"> <input type="radio"
-								name="options" autocomplete="off"> Yearly
+								name="options" autocomplete="off" value="Yearly"> Yearly
 							</label>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 							Leaves</label>
 						<div class="col-sm-2" style="margin-left: -12px">
 							<input type="text" class="form-control" id="eleave"
-								placeholder="15 hr/day">
+								placeholder="1.5 hr/day">
 						</div>
 					</div>
 					<div class="form-group">
@@ -86,12 +86,13 @@
 			</div>
 			<button type="button" class="btn btn-primary" onclick="saveHoliday()">Save</button>
 		</div>
-	</div>
-	<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
+		<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
 
 		<jsp:include page="../${userRole}/rightNav.jsp" />
 
 	</div>
+	</div>
+	
 </div>
 
 

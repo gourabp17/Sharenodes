@@ -12,8 +12,10 @@ public class HrController {
 		return "hr/leavepolicy";
 	}
 	@RequestMapping(value = { "/hr/saveHoliday" }, method = RequestMethod.POST)
-	public @ResponseBody String saveHoliday(@RequestParam("holidaylist") String holidaylist) {
-		System.out.println(holidaylist);
+	public @ResponseBody String saveHoliday(@RequestParam("holidaylist") String holidaylist,
+			@RequestParam("leave_unit") String leave_unit,@RequestParam("sl") String sl,
+			@RequestParam("cl") String cl,@RequestParam("el") String el) {
+		System.out.println(holidaylist+cl+el+sl+leave_unit);
 		return "updated";
 	}
 }

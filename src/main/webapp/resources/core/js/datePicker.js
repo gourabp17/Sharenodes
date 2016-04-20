@@ -55,9 +55,19 @@ function getHolidayFromServer(){
 	updateArrayDiv();
 }
 function saveHoliday(){
-	if (arrUnique.length > 0) {
+	var leave_unit=($("#radioUnit .active input").val());
+	var sl=$("#sleave").val();
+	var el=$("#eleave").val();
+	var cl=$("#cleave").val();
+	alert(sl)
+	if ((arrUnique.length || el.length||sl.length ||cl.length)>0) {
 		$.post("saveHoliday", {
-			holidaylist : arrUnique.toString()
+			leave_unit:leave_unit,
+			holidaylist : arrUnique.toString(),
+			sl:sl,
+			cl:cl,
+			el:el
+
 		}, function(data) {
 			alert(data);
 		});
@@ -74,9 +84,9 @@ function deleteHoliday(el){
 }
 
 $("#radioUnit #option1").click(function() {
-	$("#sleave").attr("placeholder",  "10 hr/day");
-	$("#eleave").attr("placeholder",  "15 hr/day");
-	$("#cleave").attr("placeholder",  "5 hr/day");
+	$("#sleave").attr("placeholder",  "1 hr/day");
+	$("#eleave").attr("placeholder",  "1.5 hr/day");
+	$("#cleave").attr("placeholder",  "1 hr/day");
 });
 $("#radioUnit #option2").click(function() {
 	$("#sleave").attr("placeholder",  "10 days/month");

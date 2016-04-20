@@ -76,7 +76,7 @@ footer p {
 	margin: 15px 0px
 }
 
-footer p a {
+footer p a ,  footer p a:VISITED,  footer p a:LINK{
 	margin: 0px 10px;
 	color: #ebebeb;
 	text-decoration: none;
