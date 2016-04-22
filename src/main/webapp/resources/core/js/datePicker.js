@@ -59,8 +59,9 @@ function saveHoliday(){
 	var sl=$("#sleave").val();
 	var el=$("#eleave").val();
 	var cl=$("#cleave").val();
-	alert(sl)
 	if ((arrUnique.length || el.length||sl.length ||cl.length)>0) {
+		alert(sl)
+
 		$.post("saveHoliday", {
 			leave_unit:leave_unit,
 			holidaylist : arrUnique.toString(),
