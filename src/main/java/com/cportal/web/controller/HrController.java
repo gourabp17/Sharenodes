@@ -7,29 +7,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.cportal.database.controller.DBHrFunc;
 import com.cportal.database.controller.DBSuperUserFunc;
 import com.cportal.model.LeavePolicy;
+
 @Controller
 public class HrController {
 	@RequestMapping(value = { "/hr/leavePolicy" }, method = RequestMethod.GET)
-	public String leavepolicies() {
-		return "hr/leavepolicy";
+	public ModelAndView  leavepolicies(ModelAndView model,HttpSession sess) {
+		LeavePolicy lp=new DBHrFunc().holidayDetails(sess.getAttribute("cname").toString());
+		model = new ModelAndView("hr/leavepolicy");
+		
+		model.addObject("leavePolicyHoliday", lp.getHolidaylist());
+		model.addObject("leavePolicyUnit", lp.getLeave_unit());
+		model.addObject("leavePolicySl", lp.getSl());
+		model.addObject("leavePolicyCl", lp.getCl());
+		model.addObject("leavePolicyEl", lp.getEl());
+		return model;
 	}
+
 	@RequestMapping(value = { "/hr/saveHoliday" }, method = RequestMethod.POST)
 	public @ResponseBody String saveHoliday(@RequestParam("holidaylist") String holidaylist,
-			@RequestParam("leave_unit") String leave_unit,@RequestParam("sl") String sl,
-			@RequestParam("cl") String cl,@RequestParam("el") String el, HttpSession session) {
-		LeavePolicy lp= new LeavePolicy();
+			@RequestParam("leave_unit") String leave_unit, @RequestParam("sl") Double sl, @RequestParam("cl") Double cl,
+			@RequestParam("el") Double el, HttpSession session) {
+		LeavePolicy lp = new LeavePolicy();
 		lp.setcEmail(session.getAttribute("userEmail").toString());
 		lp.setcName(session.getAttribute("cname").toString());
 		lp.setHolidaylist(holidaylist);
 		lp.setLeave_unit(leave_unit);
-		lp.setSl(sl);
-		lp.setCl(cl);
-		lp.setEl(el);
+		if ("Hourly".equals(leave_unit)) {
+			lp.setSl((sl != null) ? (sl) : 0);
+			lp.setCl((cl != null) ? (cl) : 0);
+			lp.setEl((el != null) ? (el) : 0);
+		}
+		else if("Monthly".equals(leave_unit)){
+			lp.setSl( (sl != null) ? (sl)/30 : 0);
+			lp.setCl( (cl != null) ? (cl)/30 : 0);
+			lp.setEl( (el != null) ? (el)/30 : 0);
+		}
+		else if("Yearly".equals(leave_unit)){
+			lp.setSl( (sl != null) ? (sl)/365 : 0);
+			lp.setCl( (cl != null) ? (cl)/365 : 0);
+			lp.setEl( (el != null) ? (el)/365 : 0);
+		}
 		lp.setCurrent_year();
+		
 		if ((new DBHrFunc()).updateHoliday(lp)) {
 			return "success";
 		} else {

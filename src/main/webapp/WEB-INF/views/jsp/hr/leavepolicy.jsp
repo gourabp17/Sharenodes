@@ -2,6 +2,11 @@
 <link href="${baseurl}/resources/core/css/datePicker.css"
 	rel="stylesheet" />
 <%@include file="../header.jsp"%>
+<div style="display: none" id="leavePolicyHoliday">${leavePolicyHoliday}</div>
+<div style="display: none" id="leavePolicyUnit">${leavePolicyUnit}</div>
+<div style="display: none" id="leavePolicySl">${leavePolicySl}</div>
+<div style="display: none" id="leavePolicyCl">${leavePolicyCl}</div>
+<div style="display: none" id="leavePolicyEl">${leavePolicyEl}</div>
 <div class="container" id="allBody">
 	<div class="row">
 
@@ -34,7 +39,7 @@
 					</label>
 				</div>
 				<form class="form-horizontal" style="margin-left: 8px">
-					
+
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Seak
 							Leaves</label>
@@ -42,14 +47,17 @@
 							<input type="text" class="form-control" id="sleave"
 								placeholder="1 hr/day">
 						</div>
-						<div class="btn-group" data-toggle="buttons" style="float: left;" id="radioUnit">
-							<label class="btn btn-primary active" id="option1" > <input
-								type="radio" name="options" autocomplete="off"
-								checked value="Hourly"> Hourly
-							</label> <label class="btn btn-primary" id="option2"> <input type="radio"
-								name="options" autocomplete="off" value="Monthly"> Monthly
-							</label> <label class="btn btn-primary"  id="option3"> <input type="radio"
-								name="options" autocomplete="off" value="Yearly"> Yearly
+						<div class="btn-group" data-toggle="buttons" style="float: left;"
+							id="radioUnit">
+							<label class="btn btn-primary active"  id="Hourly"> <input
+								type="radio" name="options" autocomplete="off" checked
+								value="Hourly"> Hourly
+							</label> <label class="btn btn-primary"  id="Monthly"> <input
+								type="radio" name="options" autocomplete="off" value="Monthly">
+								Monthly
+							</label> <label class="btn btn-primary" id="Yearly"> <input
+								type="radio" name="options" autocomplete="off" value="Yearly">
+								Yearly
 							</label>
 						</div>
 					</div>
@@ -72,27 +80,18 @@
 				</form>
 			</div>
 			<div class="row">
-				<div class="holidayDates">
-					<div class="input-group col-md-2">
-						<input type="text" class="form-control" disabled="disabled">
-						<span class="input-group-btn">
-							<button class="btn btn-default form-control" type="button">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-							</button>
-						</span>
-					</div>
-					<!-- /input-group -->
-				</div>
+				<div class="holidayDates"></div>
 			</div>
+
 			<button type="button" class="btn btn-primary" onclick="saveHoliday()">Save</button>
 		</div>
 		<div class="col-md-2" id="individualDiv" style="padding-left: 0px;">
 
-		<jsp:include page="../${userRole}/rightNav.jsp" />
+			<jsp:include page="../${userRole}/rightNav.jsp" />
 
+		</div>
 	</div>
-	</div>
-	
+
 </div>
 
 

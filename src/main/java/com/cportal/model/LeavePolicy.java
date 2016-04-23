@@ -7,9 +7,9 @@ public class LeavePolicy {
  String cEmail;
  String current_year;
  String holidaylist;
- String el;
- String cl;
- String sl;
+ double el;
+ double cl;
+ double sl;
  String leave_unit;
 public String getcName() {
 	return cName;
@@ -37,23 +37,23 @@ public String getHolidaylist() {
 public void setHolidaylist(String holidaylist) {
 	this.holidaylist = holidaylist;
 }
-public String getEl() {
+public double getEl() {
 	return el;
 }
-public void setEl(String el) {
-	this.el = el;
+public void setEl(double d) {
+	this.el = d;
 }
-public String getCl() {
+public double getCl() {
 	return cl;
 }
-public void setCl(String cl) {
-	this.cl = cl;
+public void setCl(double d) {
+	this.cl = d;
 }
-public String getSl() {
+public double getSl() {
 	return sl;
 }
-public void setSl(String sl) {
-	this.sl = sl;
+public void setSl(double d) {
+	this.sl = d;
 }
 public String getLeave_unit() {
 	return leave_unit;
