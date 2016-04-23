@@ -20,11 +20,7 @@ public class HrController {
 		LeavePolicy lp=new DBHrFunc().holidayDetails(sess.getAttribute("cname").toString());
 		model = new ModelAndView("hr/leavepolicy");
 		
-		model.addObject("leavePolicyHoliday", lp.getHolidaylist());
-		model.addObject("leavePolicyUnit", lp.getLeave_unit());
-		model.addObject("leavePolicySl", lp.getSl());
-		model.addObject("leavePolicyCl", lp.getCl());
-		model.addObject("leavePolicyEl", lp.getEl());
+		model.addObject("leavePolicy",lp);
 		return model;
 	}
 
@@ -40,7 +36,7 @@ public class HrController {
 		if ("Hourly".equals(leave_unit)) {
 			lp.setSl((sl != null) ? (sl) : 0);
 			lp.setCl((cl != null) ? (cl) : 0);
-			lp.setEl((el != null) ? (el) : 0);
+			lp.setEl((sl != null) ? (el) : 0);
 		}
 		else if("Monthly".equals(leave_unit)){
 			lp.setSl( (sl != null) ? (sl)/30 : 0);

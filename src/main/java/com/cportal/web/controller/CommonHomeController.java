@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.cportal.database.controller.DBHrFunc;
 import com.cportal.database.controller.DBSuperUserFunc;
 import com.cportal.model.EditUser;
+import com.cportal.model.LeavePolicy;
 import com.cportal.ui.model.CompanyBroadcast;
 
 @Controller
@@ -31,10 +34,7 @@ public class CommonHomeController {
 		homeJsp = "general/companyNews";
 		return homeJsp;
 	}
-	@RequestMapping(value = { "/leaves" }, method = RequestMethod.GET)
-	public String leaves() {
-		return "general/leaves";
-	}
+	
 	@RequestMapping(value = { "/payslip" }, method = RequestMethod.GET)
 	public String payslip() {
 		return "general/payslip";
@@ -48,4 +48,12 @@ public class CommonHomeController {
 		return "general/people";
 	}
 
+	@RequestMapping(value = { "/leaves" }, method = RequestMethod.GET)
+	public ModelAndView  leavepolicies(ModelAndView model,HttpSession sess) {
+		LeavePolicy lp=new DBHrFunc().holidayDetails(sess.getAttribute("cname").toString());
+		model = new ModelAndView("general/leaves");
+		
+		model.addObject("leavePolicy",lp);
+		return model;
+	}
 }

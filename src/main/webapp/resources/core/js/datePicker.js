@@ -5,6 +5,7 @@ $(document).ready(function() {
 		endDate : '31/12/' + new Date().getFullYear()
 	})
 	getHolidayFromServer()
+	
 });
 
 var arrDate = [];
@@ -15,10 +16,14 @@ var leavePolicyCl;
 
 function getHolidayFromServer() {
 	if ($("#leavePolicyHoliday").text().length > 1) {
-		arrDate.push($("#leavePolicyHoliday").text());
-		arrUnique.push($("#leavePolicyHoliday").text());
+		var hl = $("#leavePolicyHoliday").text().split(',');
+		for (var i = 0; i < hl.length; i++) {
+			arrDate.push(hl[i]);
+			arrUnique.push(hl[i]);
+			sortArray()
+		}
 	}
-	$("#" + $("#leavePolicyUnit").text()).trigger( "click" );
+	$("#" + $("#leavePolicyUnit").text()).trigger("click");
 
 	if ($("#leavePolicySl").text() != "0.0")
 		$("#sleave").attr("value", $("#leavePolicySl").text());
@@ -28,7 +33,13 @@ function getHolidayFromServer() {
 		$("#cleave").attr("value", $("#leavePolicyCl").text());
 	updateArrayDiv();
 }
-
+function sortArray(){
+	arrUnique.sort(function(a, b){
+	    var aa = a.split('/').reverse().join(),
+	        bb = b.split('/').reverse().join();
+	    return aa < bb ? -1 : (aa > bb ? 1 : 0);
+	});
+}
 $("#midContent .glyphicon-plus").click(function() {
 	var inputDate = $("#inputDate").val();
 	if (inputDate.length > 0 && inputDate.length < 11) {

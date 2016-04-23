@@ -1,5 +1,12 @@
 <link href="resources/core/css/home.css" rel="stylesheet" />
+<link href="resources/core/css/leaves.css" rel="stylesheet" />
+
 <%@include file="../header.jsp"%>
+<div style="display: none" id="leavePolicyHoliday">${leavePolicy.holidaylist}</div>
+<div style="display: none" id="leavePolicyUnit">${leavePolicy.leave_unit}</div>
+<div style="display: none" id="leavePolicySl">${leavePolicy.sl}</div>
+<div style="display: none" id="leavePolicyCl">${leavePolicy.cl}</div>
+<div style="display: none" id="leavePolicyEl">${leavePolicy.el}</div>
 <div class="container" id="allBody">
 	<div class="row">
 
@@ -52,7 +59,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-					<span id="noOfLeaves"><span class="badge">0</span> days </span>
+							<span id="noOfLeaves"><span class="badge">0</span> days </span>
 							<button type="button" class="btn btn-warning" id="getBetween">Calculate
 								Leaves</button>
 							<button type="submit" class="btn btn-primary">Apply
@@ -62,7 +69,18 @@
 
 					</div>
 				</form>
-
+				<div class="row" style="margin-top: 50px">
+						<fieldset class="well the-fieldset">
+							<legend class="the-legend">Available Leaves</legend>
+							<div class="availableLeaves"></div>
+						</fieldset>
+				</div>
+				<div class="row">
+						<fieldset class="well the-fieldset">
+							<legend class="the-legend">Holiday List</legend>
+							<div class="holidayDates"></div>
+						</fieldset>
+				</div>
 			</div>
 			<div id="results"></div>
 		</div>

@@ -4,9 +4,17 @@ $(document).ready(function() {
 		startDate : '01/01/' + new Date().getFullYear(),
 		endDate : '31/12/' + new Date().getFullYear()
 	})
-
+	initializeHolidayArray();
+	updateHolidayDiv();
 });
-
+function initializeHolidayArray(){
+	if ($("#leavePolicyHoliday").text().length > 1) {
+		var hl = $("#leavePolicyHoliday").text().split(',');
+		for (var i = 0; i < hl.length; i++) {
+			array1.push(hl[i]);
+		}
+	}
+}
 $('#getBetween').on('click', function() {
 	var start = $("#from").val();
 	end = $("#to").val();
@@ -44,8 +52,10 @@ function reformatDate(dateStr) {
 	return dArr[1] + "/" + dArr[0] + "/" + dArr[2]; // ex out: "18/01/10"
 }
 var difference;
+var array1=[];
 function checkCmpnyHoliday(between) {
-	var array1 = [ "05/04/2016", "07/04/2016" ];
+	
+	
 	var array2 = between;
 	difference = [];
 
@@ -60,4 +70,29 @@ function checkCmpnyHoliday(between) {
 	} else {
 		$("#noOfLeaves .badge").html(difference.length);
 	}
+}
+
+function updateHolidayDiv() {
+	if (array1.length > 0) {
+		$(".holidayDates div").remove();
+		for (var i = 0; i < array1.length; i++) {
+			$(".holidayDates")
+					.append(
+							'<div class="input-group col-md-2">\n\
+			<input type="text" class="form-control" disabled="disabled" value="'+ array1[i]	+ '">')
+		}
+
+	} else {
+		$(".holidayDates")
+				.html(
+						'<div class="alert alert-warning" role="alert" >No Holiday</div');
+	}
+	
+	$(".availableLeaves")
+	.append('<button class="btn btn-default" type="button"> Sick Leave <span class="badge">'+$("#leavePolicySl").text()+'</span> </button>')
+$(".availableLeaves")
+.append('<button class="btn btn-default" type="button"> Earn Leave <span class="badge">'+$("#leavePolicyEl").text()+'</span> </button>')
+$(".availableLeaves")
+.append('<button class="btn btn-default" type="button"> Casual Leave <span class="badge">'+$("#leavePolicyCl").text()+'</span> </button>')
+
 }

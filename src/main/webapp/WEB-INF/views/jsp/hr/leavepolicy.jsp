@@ -2,11 +2,11 @@
 <link href="${baseurl}/resources/core/css/datePicker.css"
 	rel="stylesheet" />
 <%@include file="../header.jsp"%>
-<div style="display: none" id="leavePolicyHoliday">${leavePolicyHoliday}</div>
-<div style="display: none" id="leavePolicyUnit">${leavePolicyUnit}</div>
-<div style="display: none" id="leavePolicySl">${leavePolicySl}</div>
-<div style="display: none" id="leavePolicyCl">${leavePolicyCl}</div>
-<div style="display: none" id="leavePolicyEl">${leavePolicyEl}</div>
+<div style="display: none" id="leavePolicyHoliday">${leavePolicy.holidaylist}</div>
+<div style="display: none" id="leavePolicyUnit">${leavePolicy.leave_unit}</div>
+<div style="display: none" id="leavePolicySl">${leavePolicy.sl}</div>
+<div style="display: none" id="leavePolicyCl">${leavePolicy.cl}</div>
+<div style="display: none" id="leavePolicyEl">${leavePolicy.el}</div>
 <div class="container" id="allBody">
 	<div class="row">
 
