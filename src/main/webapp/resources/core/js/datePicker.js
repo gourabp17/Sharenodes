@@ -3,6 +3,11 @@ $(document).ready(function() {
 		format : 'dd/mm/yyyy',
 		startDate : '01/01/' + new Date().getFullYear(),
 		endDate : '31/12/' + new Date().getFullYear()
+	});
+	$('#dateRangePicker1').datepicker({
+		format : 'dd/mm/yyyy',
+		startDate : '01/01/' + new Date().getFullYear(),
+		endDate : '31/12/' + new Date().getFullYear()
 	})
 	getHolidayFromServer()
 	
@@ -131,3 +136,8 @@ $("#radioUnit #Yearly").click(function() {
 	$("#eleave").attr("placeholder", "15 days/year");
 	$("#cleave").attr("placeholder", "5 days/year");
 });
+
+
+$( "input[type=checkbox]" ).on( "click",function() {
+	  $( "input:checked" ).parent().parent().siblings(".showMax").show();
+	} );

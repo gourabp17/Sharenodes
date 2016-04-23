@@ -32,3 +32,6 @@
 .holidayDates input{
 	padding: 0px 4px;
 }
+.showMax .form-control{
+	padding: 10px
+}

@@ -41,44 +41,91 @@
 				<form class="form-horizontal" style="margin-left: 8px">
 
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-3 control-label">Seak
+						<label for="inputEmail3" class="col-sm-3 control-label">Sick
 							Leaves</label>
 						<div class="col-sm-2" style="margin-left: -12px">
-							<input type="text" class="form-control" id="sleave"
-								placeholder="1 hr/day">
+							<input type="text" class="form-control" id="sleave">
 						</div>
-						<div class="btn-group" data-toggle="buttons" style="float: left;"
-							id="radioUnit">
-							<label class="btn btn-primary active"  id="Hourly"> <input
-								type="radio" name="options" autocomplete="off" checked
-								value="Hourly"> Hourly
-							</label> <label class="btn btn-primary"  id="Monthly"> <input
-								type="radio" name="options" autocomplete="off" value="Monthly">
-								Monthly
-							</label> <label class="btn btn-primary" id="Yearly"> <input
-								type="radio" name="options" autocomplete="off" value="Yearly">
-								Yearly
+
+						<div class="checkbox" style="float: left;">
+							<label> <input type="checkbox"> Carry Forward
 							</label>
+						</div>
+						<div class='showMax' style="display: none">
+							<span class="col-sm-1 control-label">Max</span>
+							<div class="col-sm-1" style="margin-left: -12px">
+								<input type="text" class="form-control" value="all">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Earned
 							Leaves</label>
 						<div class="col-sm-2" style="margin-left: -12px">
-							<input type="text" class="form-control" id="eleave"
-								placeholder="1.5 hr/day">
+							<input type="text" class="form-control" id="eleave">
+						</div>
+						<div class="checkbox" style="float: left;">
+							<label> <input type="checkbox"> Carry Forward
+							</label>
+						</div>
+						<div class='showMax' style="display: none">
+							<span class="col-sm-1 control-label">Max</span>
+							<div class="col-sm-1" style="margin-left: -12px">
+								<input type="text" class="form-control" value="all">
+							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Casual
 							Leaves</label>
 						<div class="col-sm-2" style="margin-left: -12px">
-							<input type="text" class="form-control" id="cleave"
-								placeholder="5 hr/day">
+							<input type="text" class="form-control" id="cleave">
+						</div>
+						<div class="checkbox" style="float: left;">
+							<label> <input type="checkbox"> Carry Forward
+							</label>
+						</div>
+						<div class='showMax' style="display: none">
+							<span class="col-sm-1 control-label">Max</span>
+							<div class="col-sm-1" style="margin-left: -12px">
+								<input type="text" class="form-control" value="all">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-3 control-label">Leave
+							Unit</label>
+						<div class="col-sm-6" style="margin-left: -12px">
+							<div class="btn-group" data-toggle="buttons" style="float: left;"
+								id="radioUnit">
+								<label class="btn btn-primary active" id="Hourly"> <input
+									type="radio" name="options" autocomplete="off" checked
+									value="Hourly"> Hourly
+								</label> <label class="btn btn-primary" id="Monthly"> <input
+									type="radio" name="options" autocomplete="off" value="Monthly">
+									Monthly
+								</label> <label class="btn btn-primary" id="Yearly"> <input
+									type="radio" name="options" autocomplete="off" value="Yearly">
+									Yearly
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-3 control-label">Year
+							End</label>
+						<div class="input-group input-append date col-sm-3"
+							id="dateRangePicker1">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span> <input type="text" class="form-control" name="date"
+								id="inputDate" />
+
 						</div>
 					</div>
 				</form>
 			</div>
+
 			<div class="row">
 				<div class="holidayDates"></div>
 			</div>
